@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "Permanent Marker";
+  src: local("Permanent Marker Regular"), local("PermanentMarker-Regular"),
+    url("PermanentMarker-Regular.woff") format("woff2"),
+    url("PermanentMarker-Regular.woff2") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

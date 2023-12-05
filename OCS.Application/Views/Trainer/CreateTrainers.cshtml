@@ -1,0 +1,177 @@
+﻿
+@{
+    ViewBag.Title = "Create Trainers";
+    Layout = "~/Views/Shared/dashboard/_Layout.cshtml";
+}
+
+@*@section ViewSpecificCss {
+    <!-- Icons font CSS-->
+    <link href="~/Content/form/vendor/mdi-font/css/material-design-iconic-font.min.css" />
+
+    <!-- Vendor CSS-->
+    <link href="~/Content/form/vendor/select2/select2.min.css" />
+    <link href="~/Content/form/vendor/datepicker/daterangepicker.css" />
+
+    <!-- Main CSS-->
+    <link href="~/Content/form/css/main.css" />
+}*@
+
+<div class="form-template">
+    <div class="page-wrapper font-robo">
+        <div class="form-wrapper wrapper--w960">
+            <div class="form-card form-card-2">
+                <div class="form-card-heading"></div>
+                <div class="form-card-body">
+                    <h2 class="title">Add Trainer</h2>
+                    <form method="POST">
+                        <div class="profile">
+                            <label for="profile-upload">
+                                <img class="profile-circle" id="profile-select"
+                                     src="~/Profile_image/blank-profile-picture.jpg"
+                                     alt="Profile Picture" />
+                                <span class="add-pic-icon"><i class="fa-solid fa-camera"></i></span>
+                            </label>
+                            <input class="d-none" type="file" accept="image/jpeg, image/png, image/jpg" id="profile-upload" />
+                        </div>
+                        <div class="form-input-group">
+                            <input class="form-input input--style-2"
+                                   type="text"
+                                   placeholder="Trainer ID"
+                                   name="trainerid" />
+                        </div>
+                        <div class="form-row form-row-space">
+                            <div class="form-col-2">
+                                <div class="form-input-group">
+                                    <input class="form-input input--style-2"
+                                           type="text"
+                                           placeholder="First Name"
+                                           name="fname" />
+                                </div>
+                            </div>
+                            <div class="form-col-2">
+                                <div class="form-input-group">
+                                    <input class="form-input input--style-2"
+                                           type="text"
+                                           placeholder="Last Name"
+                                           name="lname" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row form-row-space">
+                            <div class="form-col-2">
+                                <div class="form-input-group">
+                                    <input class="form-input input--style-2 js-datepicker"
+                                           type="text"
+                                           placeholder="Birthdate"
+                                           name="birthday" />
+                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                </div>
+                            </div>
+                            <div class="form-col-2">
+                                <div class="form-input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search form-padding">
+                                        <select name="gender">
+                                            <option disabled="disabled" selected="selected">
+                                                Gender
+                                            </option>
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                            <option>Other</option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row form-row-space">
+                            <div class="form-col-2">
+                                <div class="form-input-group">
+                                    <input class="form-input input--style-2"
+                                           type="text"
+                                           placeholder="Phone"
+                                           name="phone" />
+                                </div>
+                            </div>
+                            <div class="form-col-2">
+                                <div class="form-input-group">
+                                    <input class="form-input input--style-2"
+                                           type="email"
+                                           placeholder="Email"
+                                           name="email" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row form-row-space">
+                            <div class="form-col-2">
+                                <div class="form-input-group">
+                                    <input class="form-input input--style-2"
+                                           type="text"
+                                           placeholder="Job Title"
+                                           name="job-title" />
+                                </div>
+                            </div>
+                            <div class="form-col-2">
+                                <div class="form-input-group">
+                                    <input class="form-input input--style-2"
+                                           type="text"
+                                           placeholder="Position"
+                                           name="position" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-input-group">
+                            <input class="form-input input--style-2"
+                                   type="text"
+                                   placeholder="Present Address"
+                                   name="present-address" />
+                        </div>
+                        <div class="form-input-group">
+                            <input class="form-input input--style-2"
+                                   type="text"
+                                   placeholder="Permanent Address"
+                                   name="permanent-address" />
+                        </div>
+                        <div class="form-row form-row-space">
+                            <div class="form-col-2">
+                                <div class="form-input-group">
+                                    <input class="form-input input--style-2 js-datepicker"
+                                           type="text"
+                                           placeholder="Joining Date"
+                                           name="joining-date" />
+                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                </div>
+                            </div>
+                            <div class="form-col-2">
+                                <div class="form-input-group">
+                                    <input class="form-input input--style-2"
+                                           type="text"
+                                           placeholder="Salary"
+                                           name="salary" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-t-30">
+                            <button class="form-btn form-btn--radius btn--green" type="button">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section ViewSpecificJavascript
+{
+    <!-- Jquery JS-->
+    <script src="~/Content/form/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="~/Content/form/vendor/select2/select2.min.js"></script>
+    <script src="~/Content/form/vendor/datepicker/moment.min.js"></script>
+    <script src="~/Content/form/vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="~/Content/form/js/global.js"></script>
+}
