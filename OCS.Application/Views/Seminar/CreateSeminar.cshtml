@@ -1,8 +1,77 @@
 ﻿
 @{
     ViewBag.Title = "CreateSeminar";
-    Layout = "~/Views/_ViewStart.cshtml";
+    Layout = "~/Views/Shared/dashboard/_Layout.cshtml";
 }
 
-<h2>CreateSeminar</h2>
+<div class="form-template">
+    <div class="page-wrapper font-robo">
+        <div class="form-wrapper wrapper--w960">
+            <div class="form-card form-card-2">
+                <div class="form-card-heading"></div>
+                <div class="form-card-body">
+                    <h2 class="title">Add Course</h2>
+                    <form method="POST">
+                        <div class="profile">
+                            <label for="profile-upload">
+                                <img class="profile-circle" id="profile-select"
+                                     src="~/Profile_image/blank-profile-picture.jpg"
+                                     alt="Profile Picture" />
+                                <span class="add-pic-icon"><i class="fa-solid fa-camera"></i></span>
+                            </label>
+                            <input class="d-none" type="file" accept="image/jpeg, image/png, image/jpg" id="profile-upload" />
+                        </div>
+                        <div class="form-input-group">
+                            <input class="form-input input--style-2"
+                                   type="text"
+                                   placeholder="Trainer ID"
+                                   name="trainerid" />
+                        </div>
+                        <div class="form-input-group">
+                            <input class="form-input input--style-2"
+                                   type="text"
+                                   placeholder="Name"
+                                   name="name" />
+                        </div>
+                        <div class="form-input-group">
+                            <input class="form-input input--style-2"
+                                   type="text"
+                                   placeholder="Time"
+                                   name="time" />
+                        </div>
+                        <div class="form-input-group">
+                            <input class="form-input input--style-2"
+                                   type="text"
+                                   placeholder="Description"
+                                   name="description" />
+                        </div>
+                        <div class="p-t-30">
+                            <button class="form-btn form-btn--radius btn--green" type="button">
+                                Submit
+                            </button>
+                            <button class="form-btn form-btn--radius btn-primary" type="button">
+                                Next
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section ViewSpecificJavascript
+{
+    <!-- Jquery JS-->
+    <script src="~/Content/form/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="~/Content/form/vendor/select2/select2.min.js"></script>
+    <script src="~/Content/form/vendor/datepicker/moment.min.js"></script>
+    <script src="~/Content/form/vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="~/Content/form/js/global.js"></script>
+}
+
 

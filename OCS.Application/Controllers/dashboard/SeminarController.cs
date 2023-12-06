@@ -13,5 +13,11 @@ namespace OCS.Application.Controllers.dashboard
         {
             return View();
         }
+
+        // GET: Seminar
+        public ActionResult SeminarList()
+        {
+            return View();
+        }
     }
 }

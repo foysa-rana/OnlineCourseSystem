@@ -2078,10 +2078,12 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\client\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Course\CreateCourse.cshtml" />
-    <Content Include="Views\Seminar\CreateSeminar.cshtml" />
     <Content Include="Views\Trainer\CreateTrainers.cshtml" />
     <Content Include="Views\Trainer\TrainerList.cshtml" />
+    <Content Include="Views\Seminar\SeminarList.cshtml" />
+    <Content Include="Views\Seminar\CreateSeminar.cshtml" />
+    <Content Include="Views\Course\CreateCourse.cshtml" />
+    <Content Include="Views\Course\CourseList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OCS.Core\OCS.Core.csproj">
