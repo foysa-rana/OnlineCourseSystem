@@ -1,0 +1,119 @@
+
+.data-list .header-section .wrapper {
+    display: flex;
+    justify-content: end;
+    margin-right: 3rem;
+    margin-bottom: 1rem;
+}
+.data-list .header-section .content {
+    -moz-column-gap: 2rem;
+         column-gap: 2rem;
+    align-items: center;
+}
+.data-list .header-section .content p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    -moz-column-gap: 0.3rem;
+         column-gap: 0.3rem;
+}
+.data-list .header-section .content p span {
+    font-weight: 700;
+}
+.data-list .header-section .content p i {
+    margin-top: 0.2rem;
+    font-size: 0.725rem;
+}
+.data-list .header-section .content a {
+    background: #4E73DF;
+    color: #ffffff;
+    font-size: 1.2rem;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+.data-list .content-section {
+    overflow: auto;
+}
+.data-list .content-section .wrapper {
+    min-width: 900px;
+}
+.data-list .content-section table {
+    margin-top: 1rem;
+}
+.data-list .content-section table tr,
+.data-list .content-section table th,
+.data-list .content-section table td {
+    border: none;
+    transition: all 0.2s;
+}
+
+.data-list .content-section table tbody tr:hover {
+    background: #4E73DF7c;
+    color: #ffffff;
+}
+
+.data-list .content-section thead {
+    background: #4E73DF;
+    color: #ffffff;
+}
+.data-list .content-section tbody tr td .bullet-active,
+.data-list .content-section tbody tr td .bullet-offline {
+    position: relative;
+}
+.data-list .content-section tbody tr td .bullet-active::before,
+.data-list .content-section tbody tr td .bullet-offline::before {
+    content: '';
+    height: 9px;
+    width: 9px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+}
+.data-list .content-section tbody tr td .bullet-active::before {
+    background: #019c01;
+}
+.data-list .content-section tbody tr td .bullet-offline::before {
+    background: #ff2929;
+}
+.data-list .content-section tbody tr td .status {
+    margin-left: 1rem;
+}
+.data-list .content-section tbody tr .action-icon {
+    position: relative;
+}
+.data-list .content-section tbody tr .action-icon .action-btn {
+    margin-left: 1.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.data-list .content-section tbody tr .action-icon .action {
+    background: #00000018;
+    /* display: flex; */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 35px;
+    -moz-column-gap: 0.9rem;
+         column-gap: 0.9rem;
+    border-radius: 50rem;
+    position: absolute;
+    left: -1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.action-show {
+    display: flex !important;
+}
+.data-list .content-section tbody tr .action-icon .action i:hover {
+    color: #4E73DF;
+}

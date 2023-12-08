@@ -68,7 +68,7 @@
 
 })(jQuery);
 
-let profileUpload = document.querySelector("#profile-upload");
+let profileUpload = document.querySelector("#Photo");
 let profileSelect = document.querySelector("#profile-select");
 profileUpload.addEventListener("change", function (e) {
     let file = e.target.files[0];

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Http;
 using System.Web.Routing;
+using OCS.Core.AutoMapperConfigurations;
 
 namespace OCS.Application
 {
@@ -13,6 +14,7 @@ namespace OCS.Application
     {
         protected void Application_Start()
         {
+            AutoMapperConfigurations.Configure();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

@@ -20,7 +20,8 @@ namespace OCS.Application
 
             //dashboard css files
             bundles.Add(new StyleBundle("~/bundles/dashboard/css").Include(
-                      "~/Content/dashboard/css/sb-admin-2.css"));
+                      "~/Content/dashboard/css/sb-admin-2.css",
+                      "~/Content/dashboard/css/custom.css"));
 
             //dashboard js files
             bundles.Add(new ScriptBundle("~/bundles/dashboard/js").Include(
@@ -28,11 +29,7 @@ namespace OCS.Application
                 "~/Content/dashboard/vendor/jquery-easing/jquery.easing.min.js",
                 "~/Content/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js",
                 "~/Content/dashboard/vendor/chart/Chart.bundle.min.js",
-                "~/Content/dashboard/js/sb-admin-2.min.js",
-                "~/Content/dashboard/js/demo/chart-area-demo.js",
-                "~/Content/dashboard/js/demo/chart-bar-demo.js",
-                "~/Content/dashboard/js/demo/chart-pie-demo.js",
-                "~/Content/dashboard/js/demo/datatables-demo.js"));
+                "~/Content/dashboard/js/sb-admin-2.min.js"));
 
             //form css files
             bundles.Add(new StyleBundle("~/bundles/form/css").Include(
@@ -40,14 +37,6 @@ namespace OCS.Application
                 "~/Content/form/vendor/mdi-font/css/material-design-iconic-font.min.css",
                 "~/Content/form/vendor/select2/select2.min.css",
                 "~/Content/form/css/main.css"));
-
-            //form js files
-            //bundles.Add(new ScriptBundle("~/bundles/form/js").Include(
-            //    "~/Content/form/vendor/jquery/jquery.min.js",
-            //    "~/Content/form/vendor/select2/select2.min.js",
-            //    "~/Content/form/vendor/datepicker/moment.min.js",
-            //    "~/Content/form/vendor/datepicker/daterangepicker.js",
-            //    "~/Content/form/js/global.js"));
         }
     }
 }

@@ -12,7 +12,9 @@ namespace OCS.Core.AutoMapperConfigurations
         public static void Configure()
         {
             Mapper.Initialize(x =>
-            x.AddProfile<MappingsProfile>());
+            {
+                x.AddProfile<MappingsProfile>();
+            });
         }
     }
 }

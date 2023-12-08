@@ -1,4 +1,4 @@
-﻿
+﻿@model OCS.Core.ViewModel.Trainer.TrainerView
 @{
     ViewBag.Title = "Create Trainers";
     Layout = "~/Views/Shared/dashboard/_Layout.cshtml";
@@ -23,21 +23,23 @@
                 <div class="form-card-heading"></div>
                 <div class="form-card-body">
                     <h2 class="title">Add Trainer</h2>
-                    <form method="POST">
+                    @using (Html.BeginForm())
+                    {
                         <div class="profile">
-                            <label for="profile-upload">
+                            <label for="Photo">
                                 <img class="profile-circle" id="profile-select"
                                      src="~/Profile_image/blank-profile-picture.jpg"
                                      alt="Profile Picture" />
                                 <span class="add-pic-icon"><i class="fa-solid fa-camera"></i></span>
                             </label>
-                            <input class="d-none" type="file" accept="image/jpeg, image/png, image/jpg" id="profile-upload" />
+                            <input class="d-none" type="file" accept="image/jpeg, image/png, image/jpg" id="Photo" />
                         </div>
                         <div class="form-input-group">
                             <input class="form-input input--style-2"
                                    type="text"
                                    placeholder="Trainer ID"
-                                   name="trainerid" />
+                                   name="trainerid"
+                                   id="TrainerId" />
                         </div>
                         <div class="form-row form-row-space">
                             <div class="form-col-2">
@@ -45,7 +47,8 @@
                                     <input class="form-input input--style-2"
                                            type="text"
                                            placeholder="First Name"
-                                           name="fname" />
+                                           name="fname"
+                                           id="FName" />
                                 </div>
                             </div>
                             <div class="form-col-2">
@@ -53,7 +56,8 @@
                                     <input class="form-input input--style-2"
                                            type="text"
                                            placeholder="Last Name"
-                                           name="lname" />
+                                           name="lname"
+                                           id="LName" />
                                 </div>
                             </div>
                         </div>
@@ -63,14 +67,15 @@
                                     <input class="form-input input--style-2 js-datepicker"
                                            type="text"
                                            placeholder="Birthdate"
-                                           name="birthday" />
+                                           name="birthday"
+                                           id="BirthDate" />
                                     <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                 </div>
                             </div>
                             <div class="form-col-2">
                                 <div class="form-input-group">
                                     <div class="rs-select2 js-select-simple select--no-search form-padding">
-                                        <select name="gender">
+                                        <select name="gender" id="Gender">
                                             <option disabled="disabled" selected="selected">
                                                 Gender
                                             </option>
@@ -89,7 +94,8 @@
                                     <input class="form-input input--style-2"
                                            type="text"
                                            placeholder="Phone"
-                                           name="phone" />
+                                           name="phone"
+                                           id="Phone" />
                                 </div>
                             </div>
                             <div class="form-col-2">
@@ -97,7 +103,8 @@
                                     <input class="form-input input--style-2"
                                            type="email"
                                            placeholder="Email"
-                                           name="email" />
+                                           name="email"
+                                           id="Email" />
                                 </div>
                             </div>
                         </div>
@@ -107,7 +114,8 @@
                                     <input class="form-input input--style-2"
                                            type="text"
                                            placeholder="Job Title"
-                                           name="job-title" />
+                                           name="job-title"
+                                           id="JobTitle" />
                                 </div>
                             </div>
                             <div class="form-col-2">
@@ -115,7 +123,8 @@
                                     <input class="form-input input--style-2"
                                            type="text"
                                            placeholder="Position"
-                                           name="position" />
+                                           name="position"
+                                           id="Position" />
                                 </div>
                             </div>
                         </div>
@@ -123,13 +132,15 @@
                             <input class="form-input input--style-2"
                                    type="text"
                                    placeholder="Present Address"
-                                   name="present-address" />
+                                   name="present-address"
+                                   id="PresentAddress" />
                         </div>
                         <div class="form-input-group">
                             <input class="form-input input--style-2"
                                    type="text"
                                    placeholder="Permanent Address"
-                                   name="permanent-address" />
+                                   name="permanent-address"
+                                   id="PermanentAddress" />
                         </div>
                         <div class="form-row form-row-space">
                             <div class="form-col-2">
@@ -137,7 +148,8 @@
                                     <input class="form-input input--style-2 js-datepicker"
                                            type="text"
                                            placeholder="Joining Date"
-                                           name="joining-date" />
+                                           name="joining-date"
+                                           id="JoiningDate" />
                                     <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                 </div>
                             </div>
@@ -146,22 +158,24 @@
                                     <input class="form-input input--style-2"
                                            type="text"
                                            placeholder="Salary"
-                                           name="salary" />
+                                           name="salary"
+                                           id="Salary" />
                                 </div>
                             </div>
                         </div>
                         <div class="p-t-30">
-                            <button class="form-btn form-btn--radius btn--green" type="button">
+                            
+                            <button class="form-btn form-btn--radius btn--green" type="button" id="Submit">
                                 Submit
                             </button>
                         </div>
-                    </form>
+                    }
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+  
 
 @section ViewSpecificJavascript
 {
@@ -174,4 +188,6 @@
 
     <!-- Main JS-->
     <script src="~/Content/form/js/global.js"></script>
+    <script src="~/Content/FormApiScripts/CRUD.js"></script>
+    <script src="~/Content/FormApiScripts/TrainerCreate.js"></script>
 }

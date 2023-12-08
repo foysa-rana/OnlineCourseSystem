@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using OCS.Core.CommonModel;
 using OCS.Core.Model.Course;
 using OCS.Core.Model.Seminar;
 using OCS.Core.Model.Trainer;
@@ -26,6 +27,18 @@ namespace OCS.Core.AutoMapperConfigurations
 
             CreateMap<Trainer, TrainerView>();
             CreateMap<TrainerView, Trainer>();
+
+            CreateMap<Trainer, TrainerView>()
+               .ForMember(vm => vm.BirthDate,
+                   opt => opt.MapFrom(m => DateTimeFormatter.DateToString(m.BirthDate)))
+                   .ForMember(dto => dto.JoiningDate,
+                   opt => opt.MapFrom(m => DateTimeFormatter.DateToString(m.JoiningDate)));
+
+            CreateMap<TrainerView, Trainer>()
+                .ForMember(dto => dto.BirthDate,
+                    opt => opt.MapFrom(m => DateTimeFormatter.StringToDate(m.BirthDate)))
+                .ForMember(dto => dto.JoiningDate,
+                    opt => opt.MapFrom(m => DateTimeFormatter.StringToDate(m.JoiningDate)));
         }
     }
 }
