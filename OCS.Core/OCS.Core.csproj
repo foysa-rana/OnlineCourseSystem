@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="AutoMapperConfigurations\AutoMapperConfigurations.cs" />
     <Compile Include="AutoMapperConfigurations\MappingsProfile.cs" />
+    <Compile Include="CommonModel\DateTimeFormatter.cs" />
     <Compile Include="Model\Course\Course.cs" />
     <Compile Include="Model\Seminar\Seminar.cs" />
     <Compile Include="Model\Trainer\Trainer.cs" />
@@ -65,9 +66,7 @@
     <Compile Include="ViewModel\Seminar\SeminarView.cs" />
     <Compile Include="ViewModel\Trainer\TrainerView.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CommonModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

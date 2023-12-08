@@ -167,6 +167,7 @@
     <Content Include="Content\dashboard\bootstrap-theme.min.css" />
     <Content Include="Content\dashboard\bootstrap.css" />
     <Content Include="Content\dashboard\bootstrap.min.css" />
+    <Content Include="Content\dashboard\css\custom.css" />
     <Content Include="Content\dashboard\css\sb-admin-2.css" />
     <Content Include="Content\dashboard\css\sb-admin-2.min.css" />
     <Content Include="Content\dashboard\img\undraw_posting_photo.svg" />
@@ -175,6 +176,7 @@
     <Content Include="Content\dashboard\img\undraw_profile_2.svg" />
     <Content Include="Content\dashboard\img\undraw_profile_3.svg" />
     <Content Include="Content\dashboard\img\undraw_rocket.svg" />
+    <Content Include="Content\dashboard\js\custom.js" />
     <Content Include="Content\dashboard\js\demo\chart-area-demo.js" />
     <Content Include="Content\dashboard\js\demo\chart-bar-demo.js" />
     <Content Include="Content\dashboard\js\demo\chart-pie-demo.js" />
@@ -1851,6 +1853,10 @@
     <Content Include="Content\dashboard\vendor\jquery\jquery.min.js" />
     <Content Include="Content\dashboard\vendor\jquery\jquery.slim.js" />
     <Content Include="Content\dashboard\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Content\FormApiScripts\CourseCreate.js" />
+    <Content Include="Content\FormApiScripts\CRUD.js" />
+    <Content Include="Content\FormApiScripts\TrainerCreate.js" />
+    <Content Include="Content\FormApiScripts\TrainerList.js" />
     <Content Include="Content\form\css\main.css" />
     <Content Include="Content\form\images\bg-heading-02.jpg" />
     <Content Include="Content\form\js\global.js" />
@@ -1868,7 +1874,6 @@
     <Content Include="Content\form\vendor\select2\select2.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="OnlineCourseSystem.sln" />
     <Content Include="Profile_image\blank-profile-picture.jpg" />
     <Content Include="Scripts\client\js\main.js" />
     <Content Include="Scripts\client\js\swiper.js" />
