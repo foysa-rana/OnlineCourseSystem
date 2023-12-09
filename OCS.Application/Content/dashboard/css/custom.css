@@ -56,6 +56,15 @@
     background: #4E73DF7c;
     color: #ffffff;
 }
+.data-list .content-section tbody tr .action-icon .action a {
+    color: #6b7280;
+}
+.data-list .content-section table tbody tr:hover .action-icon .action a {
+    color: #ffffff;
+}
+.data-list .content-section table tbody tr .action-icon .action a:hover {
+    color: #4E73DF;
+}
 
 .data-list .content-section thead {
     background: #4E73DF;
@@ -113,7 +122,4 @@
 }
 .action-show {
     display: flex !important;
-}
-.data-list .content-section tbody tr .action-icon .action i:hover {
-    color: #4E73DF;
 }

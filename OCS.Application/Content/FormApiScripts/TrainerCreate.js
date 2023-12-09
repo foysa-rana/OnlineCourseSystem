@@ -65,7 +65,7 @@ let getData = () => {
         $.get(url)
             .done((data) => {
                 $("#Id").val(data.id);
-                $("#Photo").val(data.photo);
+                //$("#Photo").val(data.photo);
                 $("#TrainerId").val(data.trainerId);
                 $("#FName").val(data.fName);
                 $("#LName").val(data.lName);
