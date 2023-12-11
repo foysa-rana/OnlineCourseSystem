@@ -4,5 +4,49 @@
     Layout = "~/Views/Shared/dashboard/_Layout.cshtml";
 }
 
-<h2>SeminarList</h2>
+<div class="container-fluid">
+    <div class="data-list">
+        <div class="header-section">
+            <div class="wrapper">
+                <div class="content d-flex">
+                    <p class="filter">
+                        <span>Filter</span><i class="fa-solid fa-chevron-down"></i>
+                    </p>
+                    <p class="positon-filter">
+                        <span>Position</span><i class="fa-solid fa-chevron-down"></i>
+                    </p>
+                    <p class="position"></p>
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-plus"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0" />
+        <div class="content-section">
+            <div class="wrapper">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Trainer Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data-list-table"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section ViewSpecificJavascript
+{
+    <script src="~/Content/dashboard/js/custom.js"></script>
+    <script src="~/Content/FormApiScripts/TrainerList.js"></script>
+}
+
 

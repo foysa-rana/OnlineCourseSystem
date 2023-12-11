@@ -1854,7 +1854,10 @@
     <Content Include="Content\dashboard\vendor\jquery\jquery.slim.js" />
     <Content Include="Content\dashboard\vendor\jquery\jquery.slim.min.js" />
     <Content Include="Content\FormApiScripts\CourseCreate.js" />
+    <Content Include="Content\FormApiScripts\CourseList.js" />
     <Content Include="Content\FormApiScripts\CRUD.js" />
+    <Content Include="Content\FormApiScripts\SeminarCreate.js" />
+    <Content Include="Content\FormApiScripts\SeminarList.js" />
     <Content Include="Content\FormApiScripts\TrainerCreate.js" />
     <Content Include="Content\FormApiScripts\TrainerList.js" />
     <Content Include="Content\form\css\main.css" />
