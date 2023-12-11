@@ -58,6 +58,7 @@
     <Compile Include="Manager\CourseService.cs" />
     <Compile Include="Manager\SeminarService.cs" />
     <Compile Include="Manager\TrainerService.cs" />
+    <Compile Include="Manager\UserSignUpService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

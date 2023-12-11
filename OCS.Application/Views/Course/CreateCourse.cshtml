@@ -54,12 +54,9 @@
                             @Html.EditorFor(model => model.Description, new { htmlAttributes = new { type = "text", @class = "form-input input--style-2", placeholder = "Description" } })
                         </div>
                         <div class="p-t-30">
-                            @Html.HiddenFor(model => model.Id);
+                            @Html.HiddenFor(model => model.Id)
                             <button class="form-btn form-btn--radius btn--green" type="button" id="Submit">
                                 Submit
-                            </button>
-                            <button class="form-btn form-btn--radius btn-primary" type="button">
-                                Next
                             </button>
                         </div>
                     }

@@ -72,7 +72,7 @@
                                                 <input class="w-100"
                                                        type="password"
                                                        name="password"
-                                                       id="password"
+                                                       id="Password-SignIn"
                                                        placeholder="password" />
                                             </div>
                                         </div>
@@ -96,33 +96,29 @@
                                             <input class="w-100"
                                                    type="text"
                                                    name="username"
-                                                   id="username"
+                                                   id="UserName"
                                                    placeholder="Username" />
                                             <input class="w-100"
                                                    type="text"
                                                    name="fname"
-                                                   id="fname"
+                                                   id="FName"
                                                    placeholder="First name" />
                                             <input class="w-100"
                                                    type="text"
-                                                   name="lanme"
-                                                   id="lname"
+                                                   name="lname"
+                                                   id="LName"
                                                    placeholder="Last name" />
-                                            <input type="number"
-                                                   name="phone"
-                                                   id="phone"
-                                                   placeholder="Phone" />
                                             <input type="email"
                                                    name="email"
-                                                   id="email"
+                                                   id="Email"
                                                    placeholder="Email" />
                                             <input type="password"
                                                    name="password"
-                                                   id="password"
+                                                   id="Password"
                                                    placeholder="password" />
                                             <input type="password"
                                                    name="confirm-password"
-                                                   id="confirm-password"
+                                                   id="confirm-password-SignUp"
                                                    placeholder="Confirm Password" />
                                         </div>
                                         <button class="sign-btn sign-submit mt-4" type="button">
@@ -374,6 +370,9 @@
             integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
             crossorigin="anonymous"></script>
     <!-- js -->
+    <script src="~/Content/dashboard/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/FormApiScripts/CRUD.js"></script>
+    <script src="~/Content/FormApiScripts/UserSignUp.js"></script>
     @Scripts.Render("~/bundles/client/js")
 
 

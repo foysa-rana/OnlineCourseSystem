@@ -61,6 +61,10 @@
     <Compile Include="Migrations\202312040956577_CreateTrainerTable.Designer.cs">
       <DependentUpon>202312040956577_CreateTrainerTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312101023029_CreateUserTable.cs" />
+    <Compile Include="Migrations\202312101023029_CreateUserTable.Designer.cs">
+      <DependentUpon>202312101023029_CreateUserTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -86,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202312040956577_CreateTrainerTable.resx">
       <DependentUpon>202312040956577_CreateTrainerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312101023029_CreateUserTable.resx">
+      <DependentUpon>202312101023029_CreateUserTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -60,10 +60,12 @@
     <Compile Include="CommonModel\DateTimeFormatter.cs" />
     <Compile Include="Model\Course\Course.cs" />
     <Compile Include="Model\Seminar\Seminar.cs" />
+    <Compile Include="Model\SignUp\UserSignUp.cs" />
     <Compile Include="Model\Trainer\Trainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\Course\CourseView.cs" />
     <Compile Include="ViewModel\Seminar\SeminarView.cs" />
+    <Compile Include="ViewModel\SignUp\UserSignUpView.cs" />
     <Compile Include="ViewModel\Trainer\TrainerView.cs" />
   </ItemGroup>
   <ItemGroup />

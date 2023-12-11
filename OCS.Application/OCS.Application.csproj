@@ -143,6 +143,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\client\APIController\UserController.cs" />
     <Compile Include="Controllers\client\HomeController.cs" />
     <Compile Include="Controllers\dashboard\AdminController.cs" />
     <Compile Include="Controllers\dashboard\APIController\CourseController.cs" />
@@ -1860,6 +1861,7 @@
     <Content Include="Content\FormApiScripts\SeminarList.js" />
     <Content Include="Content\FormApiScripts\TrainerCreate.js" />
     <Content Include="Content\FormApiScripts\TrainerList.js" />
+    <Content Include="Content\FormApiScripts\UserSignUp.js" />
     <Content Include="Content\form\css\main.css" />
     <Content Include="Content\form\images\bg-heading-02.jpg" />
     <Content Include="Content\form\js\global.js" />
@@ -1880,7 +1882,9 @@
     <Content Include="Profile_image\blank-profile-picture.jpg" />
     <Content Include="Scripts\client\js\main.js" />
     <Content Include="Scripts\client\js\swiper.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
