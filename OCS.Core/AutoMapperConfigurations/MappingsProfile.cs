@@ -2,9 +2,11 @@
 using OCS.Core.CommonModel;
 using OCS.Core.Model.Course;
 using OCS.Core.Model.Seminar;
+using OCS.Core.Model.SignUp;
 using OCS.Core.Model.Trainer;
 using OCS.Core.ViewModel.Course;
 using OCS.Core.ViewModel.Seminar;
+using OCS.Core.ViewModel.SignUp;
 using OCS.Core.ViewModel.Trainer;
 using System;
 using System.Collections.Generic;
@@ -39,6 +41,9 @@ namespace OCS.Core.AutoMapperConfigurations
                     opt => opt.MapFrom(m => DateTimeFormatter.StringToDate(m.BirthDate)))
                 .ForMember(dto => dto.JoiningDate,
                     opt => opt.MapFrom(m => DateTimeFormatter.StringToDate(m.JoiningDate)));
+
+            CreateMap<UserSignUp, UserSignUpView>();
+            CreateMap<UserSignUpView, UserSignUp>();
         }
     }
 }
