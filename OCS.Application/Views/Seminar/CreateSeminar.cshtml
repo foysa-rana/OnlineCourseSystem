@@ -10,50 +10,56 @@
             <div class="form-card form-card-2">
                 <div class="form-card-heading"></div>
                 <div class="form-card-body">
-                    <h2 class="title">Add Course</h2>
-                    <form method="POST">
+                    <h2 class="title">Add Seminar</h2>
+                    @using (Html.BeginForm())
+                    {
                         <div class="profile">
-                            <label for="profile-upload">
+                            <label for="Photo">
                                 <img class="profile-circle" id="profile-select"
                                      src="~/Profile_image/blank-profile-picture.jpg"
                                      alt="Profile Picture" />
                                 <span class="add-pic-icon"><i class="fa-solid fa-camera"></i></span>
                             </label>
-                            <input class="d-none" type="file" accept="image/jpeg, image/png, image/jpg" id="profile-upload" />
+                            @*<input class="d-none" type="file" accept="image/jpeg, image/png, image/jpg" id="profile-upload" />*@
+                            @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { type = "file", @class = "d-none", accept = "image/jpeg, image/png, image/jpg" } })
                         </div>
                         <div class="form-input-group">
-                            <input class="form-input input--style-2"
-                                   type="text"
-                                   placeholder="Trainer ID"
-                                   name="trainerid" />
+                            @*<input class="form-input input--style-2"
+                                type="text"
+                                placeholder="Trainer ID"
+                                name="trainerid" />*@
+                            @Html.EditorFor(model => model.TrainerId, new { htmlAttributes = new { type = "text", @class = "form-input input--style-2", placeholder = "Trainer ID" } })
                         </div>
                         <div class="form-input-group">
-                            <input class="form-input input--style-2"
-                                   type="text"
-                                   placeholder="Name"
-                                   name="name" />
+                            @*<input class="form-input input--style-2"
+                                type="text"
+                                placeholder="Name"
+                                name="name" />*@
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { type = "text", @class = "form-input input--style-2", placeholder = "Name" } })
+
                         </div>
                         <div class="form-input-group">
-                            <input class="form-input input--style-2"
-                                   type="text"
-                                   placeholder="Time"
-                                   name="time" />
+                            @*<input class="form-input input--style-2"
+                                type="text"
+                                placeholder="Duration"
+                                name="duration" />*@
+                            @Html.EditorFor(model => model.Time, new { htmlAttributes = new { type = "text", @class = "form-input input--style-2", placeholder = "Time" } })
+
                         </div>
                         <div class="form-input-group">
-                            <input class="form-input input--style-2"
-                                   type="text"
-                                   placeholder="Description"
-                                   name="description" />
+                            @*<input class="form-input input--style-2"
+                                type="text"
+                                placeholder="Description"
+                                name="description" />*@
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { type = "text", @class = "form-input input--style-2", placeholder = "Description" } })
                         </div>
                         <div class="p-t-30">
-                            <button class="form-btn form-btn--radius btn--green" type="button">
+                            @Html.HiddenFor(model => model.Id)
+                            <button class="form-btn form-btn--radius btn--green" type="button" id="Submit">
                                 Submit
                             </button>
-                            <button class="form-btn form-btn--radius btn-primary" type="button">
-                                Next
-                            </button>
                         </div>
-                    </form>
+                    }
                 </div>
             </div>
         </div>
@@ -72,6 +78,6 @@
 
     <!-- Main JS-->
     <script src="~/Content/form/js/global.js"></script>
+    <script src="~/Content/FormApiScripts/CRUD.js"></script>
+    <script src="~/Content/FormApiScripts/CourseCreate.js"></script>
 }
-
-
