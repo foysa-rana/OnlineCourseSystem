@@ -17,5 +17,5 @@ Our idea is to develop an innovative online learning platform that prioritizes a
 We envision a platform where learners from all backgrounds can access valuable resources in a wide range of subjects—whether they are looking to develop new professional skills, pursue personal interests, or prepare for career transitions. By focusing on affordability, we aim to empower individuals who may not have had access to education before, breaking down the barriers of cost and exclusivity that often surround learning.
 
 ### Contributors
-[Foysal Rana](https://github.com/foysa-rana)
+[Foysal Rana](https://github.com/foysa-rana) <br/>
 [Turjo Hasnat](https://github.com/turjohasnat)
