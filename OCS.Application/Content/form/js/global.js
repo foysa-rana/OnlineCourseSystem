@@ -70,12 +70,35 @@
 
 let profileUpload = document.querySelector("#Photo");
 let profileSelect = document.querySelector("#profile-select");
-profileUpload.addEventListener("change", function (e) {
-    let file = e.target.files[0];
-    let reader = new FileReader();
-    reader.readAsDataURL(file);
 
-    reader.onload = () => {
-        profileSelect.setAttribute("src", reader.result);
+let videoUpload = document.querySelector('#Video');
+let videoSelect = document.querySelector('#video-select');
+if (profileUpload) {
+    profileUpload.addEventListener("change", function (e) {
+        let file = e.target.files[0];
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+
+        reader.onload = () => {
+            profileSelect.setAttribute("src", reader.result);
+        }
+    });
+}
+
+else {
+    videoSelect.onloadedmetadata = function () {
+        if (videoSelect.hasAttribute("src")) {
+            document.querySelector('.video-here').style.border = "none";
+            document.querySelector('.change').style.display = "block";
+        }
     }
-});
+    videoUpload.addEventListener("change", function (e) {
+        let file = e.target.files[0];
+        let videourl = URL.createObjectURL(file);
+        videoSelect.setAttribute("src", videourl);
+        videoSelect.setAttribute("controls", "");
+        document.querySelector('.video-here').style.border = "none";
+        document.querySelector('.change').style.display = "block";
+
+    })
+}

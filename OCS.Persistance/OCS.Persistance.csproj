@@ -49,21 +49,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseFile\ApplicationDB.cs" />
-    <Compile Include="Migrations\202312012008585_CreateCourseTable.cs" />
-    <Compile Include="Migrations\202312012008585_CreateCourseTable.Designer.cs">
-      <DependentUpon>202312012008585_CreateCourseTable.cs</DependentUpon>
+    <Compile Include="Migrations\202312171433052_CreateTrainerTable.cs" />
+    <Compile Include="Migrations\202312171433052_CreateTrainerTable.Designer.cs">
+      <DependentUpon>202312171433052_CreateTrainerTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202312030736059_CreateSemianrTable.cs" />
-    <Compile Include="Migrations\202312030736059_CreateSemianrTable.Designer.cs">
-      <DependentUpon>202312030736059_CreateSemianrTable.cs</DependentUpon>
+    <Compile Include="Migrations\202312171434064_CreateCourseTable.cs" />
+    <Compile Include="Migrations\202312171434064_CreateCourseTable.Designer.cs">
+      <DependentUpon>202312171434064_CreateCourseTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202312040956577_CreateTrainerTable.cs" />
-    <Compile Include="Migrations\202312040956577_CreateTrainerTable.Designer.cs">
-      <DependentUpon>202312040956577_CreateTrainerTable.cs</DependentUpon>
+    <Compile Include="Migrations\202312171434419_CreateSeminarTable.cs" />
+    <Compile Include="Migrations\202312171434419_CreateSeminarTable.Designer.cs">
+      <DependentUpon>202312171434419_CreateSeminarTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202312101023029_CreateUserTable.cs" />
-    <Compile Include="Migrations\202312101023029_CreateUserTable.Designer.cs">
-      <DependentUpon>202312101023029_CreateUserTable.cs</DependentUpon>
+    <Compile Include="Migrations\202312171435180_CreateUserTable.cs" />
+    <Compile Include="Migrations\202312171435180_CreateUserTable.Designer.cs">
+      <DependentUpon>202312171435180_CreateUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202401041321320_CreateVideosTable.cs" />
+    <Compile Include="Migrations\202401041321320_CreateVideosTable.Designer.cs">
+      <DependentUpon>202401041321320_CreateVideosTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,17 +86,20 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202312012008585_CreateCourseTable.resx">
-      <DependentUpon>202312012008585_CreateCourseTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312171433052_CreateTrainerTable.resx">
+      <DependentUpon>202312171433052_CreateTrainerTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312030736059_CreateSemianrTable.resx">
-      <DependentUpon>202312030736059_CreateSemianrTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312171434064_CreateCourseTable.resx">
+      <DependentUpon>202312171434064_CreateCourseTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312040956577_CreateTrainerTable.resx">
-      <DependentUpon>202312040956577_CreateTrainerTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312171434419_CreateSeminarTable.resx">
+      <DependentUpon>202312171434419_CreateSeminarTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312101023029_CreateUserTable.resx">
-      <DependentUpon>202312101023029_CreateUserTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312171435180_CreateUserTable.resx">
+      <DependentUpon>202312171435180_CreateUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202401041321320_CreateVideosTable.resx">
+      <DependentUpon>202401041321320_CreateVideosTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using OCS.Core.Model.Seminar;
-using OCS.Core.ViewModel.Seminar;
+using OCS.Core.Model.SeminarModel;
+using OCS.Core.ViewModel.SeminarViewModel;
 using OCS.Persistance.DatabaseFile;
 using System;
 using System.Collections.Generic;
@@ -37,7 +37,7 @@ namespace OCS.Service.Manager
         //get all method
         public IEnumerable<SeminarView> GetAll()
         {
-            var entities = _db.Seminars.ToList();
+            var entities = _db.Seminars.Include("Trainer").ToList();
             return entities.Select(Mapper.Map<Seminar, SeminarView>);
         }
 

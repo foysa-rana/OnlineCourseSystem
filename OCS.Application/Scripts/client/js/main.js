@@ -51,19 +51,53 @@ let sign = () => {
 }
 sign();
 
+//profile
+let profile = () => {
+    let profileBtn = document.querySelector('.profile');
+    let profileInfo = document.querySelector('.profile-info');
+    if (profileBtn) {
+        profileBtn.addEventListener('click', () => {
+            profileInfo.classList.toggle('profile-show');
+        });
+    }
+}
+profile();
+
 // sidebar
 let sidebar = () => {
   let bar = document.querySelector('.sidebar');
   let showIcon = document.querySelector('.show-icon');
   let hideIcon = document.querySelector('.hide-icon');
 
-  showIcon.addEventListener('click', () => {
-    showIcon.style.display = 'none';
-    bar.classList.add('shrink');
-  })
-  hideIcon.addEventListener('click', () => {
-    showIcon.style.display = 'block';
-    bar.classList.remove('shrink');
-  })
+    if (showIcon) {
+        showIcon.addEventListener('click', () => {
+            showIcon.style.display = 'none';
+            bar.classList.add('shrink');
+        })
+    }
+    if (hideIcon) {
+        hideIcon.addEventListener('click', () => {
+            showIcon.style.display = 'block';
+            bar.classList.remove('shrink');
+        })
+    }
+  
 }
 sidebar();
+
+// nested item 
+let nestedItem = () => {
+    let nestedBtn = document.querySelector('#nestedBtn');
+    let rightArrow = document.querySelector('#rightArrow');
+    let selectNested = document.querySelector('#selectNested');
+    nestedBtn.addEventListener("click", () => {
+        selectNested.classList.toggle("nested-item-show");
+        if (rightArrow.style.transform == "rotate(0deg)") {
+            rightArrow.style.transform = "rotate(90deg)";
+        }
+        else {
+            rightArrow.style.transform = "rotate(0deg)";
+        }
+    })
+}
+nestedItem();

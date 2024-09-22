@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/client/_Layout.cshtml";
+}
+
+<!-- main -->
+<main class="payment">
+    <div class="container d-lg-flex container-payment">
+        <div class="box-1 bg-light user">
+            <div class="box-inner-1 pb-3 mb-3" id="course-info">
+                
+            </div>
+        </div>
+        <div class="box-2">
+            <div class="box-inner-2">
+                <div>
+                    <p class="fw-bold">Payment Details</p>
+                    <p class="dis mb-3">Complete your purchase by providing your payment details</p>
+                </div>
+                <form action="">
+                    <div class="mb-3">
+                        <p class="dis fw-bold mb-2">Email address</p>
+                        <input class="form-control" type="email" id="email">
+                    </div>
+                    <div>
+                        <p class="dis fw-bold mb-2">Card details</p>
+                        <div class="d-flex align-items-center justify-content-between card-atm border rounded">
+                            <div class="ri-visa-line ps-3" style="font-size: 1.3rem;"></div>
+                            <input type="text" class="form-control" placeholder="Card Number">
+                            <div class="d-flex w-50"> <input type="text" class="form-control px-0" placeholder="MM/YY"> <input type="password" maxlength=3 class="form-control px-0" placeholder="CVV"> </div>
+                        </div>
+                        <div class="my-3 cardname">
+                            <p class="dis fw-bold mb-2">Cardholder name</p>
+                            <input class="form-control" type="text" id="user-full-name">
+                        </div>
+                        <div class="address">
+                            <div class="my-3">
+                                <p class="dis fw-bold mb-2">Discount Code</p>
+                                <input class="form-control text-uppercase" type="text" value="BLACKFRIDAY" id="discount">
+                            </div>
+                            <div class="d-flex flex-column dis">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <p>Subtotal</p>
+                                    <p id="subtotal">$19.00</p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <div class="d-flex align-items-center">
+                                        <p class="pe-2">Discount <span class="d-inline-flex align-items-center justify-content-between bg-light px-2 couponCode"> <span id="code" class="pe-2"></span> <span class="fas fa-times close"></span> </span> </p>
+                                    </div>
+                                    <p id="discount">$5.00</p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <p class="fw-bold">Total</p>
+                                    <p class="fw-bold" id="total">$16.80</p>
+                                </div>
+                                <div class="btn btn-primary mt-2 pay-btn">Pay $16.80</div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- end of main -->
+<!-- footer -->
+<footer class="bg-dark pt-3">
+
+@section ViewSpecificJavascript
+{
+    <script src="~/Scripts/client/Payment/Payment.js"></script>
+}

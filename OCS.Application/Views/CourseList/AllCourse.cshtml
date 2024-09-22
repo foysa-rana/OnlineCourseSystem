@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "AllCourse";
+    Layout = "~/Views/Shared/client/_Layout.cshtml";
+}
+
+<!-- main -->
+<main class="course-list">
+    <div class="container">
+        <div class="wrapper">
+            <div class="all-items d-grid" id="load-course">
+                <!-- load course here -->
+            </div>
+            <nav class="my-4 pagination-custom" aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</main>
+<!-- end of main -->
+<!-- footer -->
+<footer class="bg-dark pt-3">
+
+@section ViewSpecificJavascript
+{
+    <script src="~/Scripts/client/LoadData/LoadAllCourse.js"></script>
+}

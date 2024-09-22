@@ -8,7 +8,6 @@ let refresh = () => {
     $("#UserName").val("");
     $("#FName").val("");
     $("#LName").val("");
-    $("#BirthDate").val("");
     $("#Email").val("");
     $("#Password").val("");
     $("#confirm-password-SignUp").val("");
@@ -19,13 +18,12 @@ let formValue = () => {
     // get id from url ==> array
     getData();
 
-    $(".sign-submit").on('click', () => {
+    $("#signUp").on('click', () => {
         let vm = {};
         let id = $("#Id").val();
         vm.UserName = $("#UserName").val();
         vm.FName = $("#FName").val();
         vm.LName = $("#LName").val();
-        vm.BirthDate = $("#BirthDate").val("Later");
         vm.Email = $("#Email").val();
         vm.Password = $("#Password").val();
         //post formdata
@@ -53,7 +51,6 @@ let getData = () => {
                 $("#FName").val(data.fName);
                 $("#UserName").val(data.userName);
                 $("#LName").val(data.lName);
-                $("#BirthDate").val(data.birthDate);
                 $("#Email").val(data.email);
                 $("#Password").val(data.salary);
             })

@@ -1,14 +1,15 @@
 ﻿using AutoMapper;
 using OCS.Core.CommonModel;
-using OCS.Core.Model.Course;
-using OCS.Core.Model.Seminar;
-using OCS.Core.Model.SignUp;
-using OCS.Core.Model.Trainer;
-using OCS.Core.ViewModel.Course;
-using OCS.Core.ViewModel.Seminar;
-using OCS.Core.ViewModel.SignUp;
-using OCS.Core.ViewModel.Trainer;
-using System;
+using OCS.Core.Model.CourseModel;
+using OCS.Core.Model.SeminarModel;
+using OCS.Core.Model.SignUpModel;
+using OCS.Core.Model.TrainerModel;
+using OCS.Core.Model.VideoModel;
+using OCS.Core.ViewModel.CourseViewModel;
+using OCS.Core.ViewModel.SeminarViewModel;
+using OCS.Core.ViewModel.SignUpViewModel;
+using OCS.Core.ViewModel.TrainerViewModel;
+using OCS.Core.ViewModel.VideosViewModel;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,9 +28,6 @@ namespace OCS.Core.AutoMapperConfigurations
             CreateMap<Seminar, SeminarView>();
             CreateMap<SeminarView, Seminar>();
 
-            CreateMap<Trainer, TrainerView>();
-            CreateMap<TrainerView, Trainer>();
-
             CreateMap<Trainer, TrainerView>()
                .ForMember(vm => vm.BirthDate,
                    opt => opt.MapFrom(m => DateTimeFormatter.DateToString(m.BirthDate)))
@@ -42,8 +40,16 @@ namespace OCS.Core.AutoMapperConfigurations
                 .ForMember(dto => dto.JoiningDate,
                     opt => opt.MapFrom(m => DateTimeFormatter.StringToDate(m.JoiningDate)));
 
-            CreateMap<UserSignUp, UserSignUpView>();
-            CreateMap<UserSignUpView, UserSignUp>();
+            CreateMap<UserSignUp, UserSignUpView>()
+               .ForMember(vm => vm.BirthDate,
+                   opt => opt.MapFrom(m => DateTimeFormatter.DateToString(m.BirthDate)));
+
+            CreateMap<UserSignUpView, UserSignUp>()
+                .ForMember(dto => dto.BirthDate,
+                    opt => opt.MapFrom(m => DateTimeFormatter.StringToDate(m.BirthDate)));
+
+            CreateMap<Videos, VideosView>();
+            CreateMap<VideosView, Videos>();
         }
     }
 }

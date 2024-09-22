@@ -123,3 +123,77 @@
 .action-show {
     display: flex !important;
 }
+
+/* ====================================
+   ------- video list ----------------
+   ====================================  */
+
+
+.custom-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.video-catagory .view-videos {
+    color: #858796 !important;
+}
+.video-catagory .content-section .wrapper .table-body .table-row {
+    display: flex;
+    gap: 2rem;
+}
+.video-catagory .content-section .wrapper .table-body .view-videos {
+    text-decoration: none;
+}
+.video-catagory .content-section .wrapper .table-body .table-row .video-count,
+.video-catagory .content-section .wrapper .table-body .table-row .video-action {
+    margin-left: auto;
+    margin-right: 2rem;
+    align-self: center;
+}
+.video-catagory .content-section .wrapper .table-row {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+.video-catagory .content-section .wrapper .table-body .table-row {
+    padding-top: 0.5rem;
+}
+.video-catagory .content-section .wrapper .table-body .table-row:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.video-icon {
+    visibility: hidden;
+}
+.video-catagory .content-section .wrapper .table-body .table-row:hover .video-icon {
+    visibility: visible;
+}
+.video-catagory .content-section .wrapper .table-body .course,
+.video-catagory .content-section .wrapper .table-body .show-video {
+    gap: 1rem;
+    align-items: flex-start;
+}
+.video-catagory .content-section .wrapper .table-body img,
+.video-catagory .content-section .wrapper .table-body video {
+    display: block;
+    width: 80px;
+    height: 50px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+.video-catagory .content-section .wrapper .table-body .show-video .duration {
+    position: absolute;
+    color: #fff;
+    font-size: 0.55rem;
+    right: 0.1rem;
+    bottom: 0.15rem;
+    background-color: #373535;
+    padding: 0 0.2rem;
+}
+.video-catagory .content-section .wrapper .table-body .video-icon div {
+    gap: 1rem;
+    margin-right: 1.5rem;
+}
+.video-catagory .content-section .wrapper .table-body .video-icon div a {
+    cursor: pointer;
+    padding: 0.2rem;
+}

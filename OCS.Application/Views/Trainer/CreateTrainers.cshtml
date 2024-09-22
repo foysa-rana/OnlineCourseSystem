@@ -1,29 +1,17 @@
-﻿@model OCS.Core.ViewModel.Trainer.TrainerView
+﻿@model OCS.Core.ViewModel.TrainerViewModel.TrainerView
 @{
     ViewBag.Title = "Create Trainers";
     Layout = "~/Views/Shared/dashboard/_Layout.cshtml";
 }
 
-@*@section ViewSpecificCss {
-    <!-- Icons font CSS-->
-    <link href="~/Content/form/vendor/mdi-font/css/material-design-iconic-font.min.css" />
-
-    <!-- Vendor CSS-->
-    <link href="~/Content/form/vendor/select2/select2.min.css" />
-    <link href="~/Content/form/vendor/datepicker/daterangepicker.css" />
-
-    <!-- Main CSS-->
-    <link href="~/Content/form/css/main.css" />
-}*@
-
-<div class="form-template">
+<div class="form-template form-font">
     <div class="page-wrapper font-robo">
         <div class="form-wrapper wrapper--w960">
             <div class="form-card form-card-2">
                 <div class="form-card-heading"></div>
                 <div class="form-card-body">
-                    <h2 class="title">Add Trainer</h2>
-                    @using (Html.BeginForm())
+                    <h2 class="form-title">Add Trainer</h2>
+                    @using (Html.BeginForm("CreateTrainers", "Trainer", FormMethod.Post, new { @enctype = "multipart/form-data" }))
                     {
                         <div class="profile">
                             <label for="Photo">
@@ -33,6 +21,7 @@
                                 <span class="add-pic-icon"><i class="fa-solid fa-camera"></i></span>
                             </label>
                             <input class="d-none" type="file" accept="image/jpeg, image/png, image/jpg" id="Photo" />
+                            <input class="d-none" type="text" id="imgName" />
                         </div>
                         <div class="form-input-group">
                             <input class="form-input input--style-2"
@@ -163,8 +152,11 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-input-group">
+                            <textarea class="form-input input--style-2" placeholder="About" name="About" id="About" style="height: 42px;"></textarea>
+                        </div>
                         <div class="p-t-30">
-                             @Html.HiddenFor(model => model.Id)
+                            @Html.HiddenFor(model => model.Id)
                             <button class="form-btn form-btn--radius btn--green" type="button" id="Submit">
                                 Submit
                             </button>
@@ -175,7 +167,6 @@
         </div>
     </div>
 </div>
-  
 
 @section ViewSpecificJavascript
 {

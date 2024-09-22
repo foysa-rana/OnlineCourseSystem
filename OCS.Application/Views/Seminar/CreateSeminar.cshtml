@@ -1,56 +1,47 @@
-﻿@model OCS.Core.ViewModel.Seminar.SeminarView
+﻿@model OCS.Core.ViewModel.SeminarViewModel.SeminarView
 @{
     ViewBag.Title = "CreateSeminar";
     Layout = "~/Views/Shared/dashboard/_Layout.cshtml";
 }
 
-<div class="form-template">
+<div class="form-template form-font">
     <div class="page-wrapper font-robo">
         <div class="form-wrapper wrapper--w960">
             <div class="form-card form-card-2">
                 <div class="form-card-heading"></div>
                 <div class="form-card-body">
-                    <h2 class="title">Add Seminar</h2>
-                    @using (Html.BeginForm())
+                    <h2 class="form-title">Add Seminar</h2>
+                    @using (Html.BeginForm("CreateTrainers", "Trainer", FormMethod.Post, new { @enctype = "multipart/form-data" }))
                     {
-                        <div class="profile">
-                            <label for="Photo">
-                                <img class="profile-circle" id="profile-select"
-                                     src="~/Profile_image/blank-profile-picture.jpg"
-                                     alt="Profile Picture" />
-                                <span class="add-pic-icon"><i class="fa-solid fa-camera"></i></span>
-                            </label>
-                            @*<input class="d-none" type="file" accept="image/jpeg, image/png, image/jpg" id="profile-upload" />*@
-                            @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { type = "file", @class = "d-none", accept = "image/jpeg, image/png, image/jpg" } })
+                    <div class="profile">
+                        <label for="Photo">
+                            <img class="profile-circle" id="profile-select"
+                                 src="~/Profile_image/blank-profile-picture.jpg"
+                                 alt="Profile Picture" />
+                            <span class="add-pic-icon"><i class="fa-solid fa-camera"></i></span>
+                        </label>
+                        @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { type = "file", @class = "d-none", accept = "image/jpeg, image/png, image/jpg" } })
+                        <input class="d-none" type="text" id="imgName" />
+                    </div>
+                    <div class="form-input-group">
+                        <div class="rs-select2 js-select-simple select--no-search form-padding">
+                            <select name="TrainerId" id="TrainerId">
+                                <option disabled="disabled" selected="selected">
+                                    Trainer
+                                </option>
+                            </select>
+                            <div class="select-dropdown"></div>
                         </div>
+                    </div>
                         <div class="form-input-group">
-                            @*<input class="form-input input--style-2"
-                                type="text"
-                                placeholder="Trainer ID"
-                                name="trainerid" />*@
-                            @Html.EditorFor(model => model.TrainerId, new { htmlAttributes = new { type = "text", @class = "form-input input--style-2", placeholder = "Trainer ID" } })
-                        </div>
-                        <div class="form-input-group">
-                            @*<input class="form-input input--style-2"
-                                type="text"
-                                placeholder="Name"
-                                name="name" />*@
                             @Html.EditorFor(model => model.Name, new { htmlAttributes = new { type = "text", @class = "form-input input--style-2", placeholder = "Name" } })
 
                         </div>
                         <div class="form-input-group">
-                            @*<input class="form-input input--style-2"
-                                type="text"
-                                placeholder="Duration"
-                                name="duration" />*@
                             @Html.EditorFor(model => model.Time, new { htmlAttributes = new { type = "text", @class = "form-input input--style-2", placeholder = "Time" } })
 
                         </div>
                         <div class="form-input-group">
-                            @*<input class="form-input input--style-2"
-                                type="text"
-                                placeholder="Description"
-                                name="description" />*@
                             @Html.EditorFor(model => model.Description, new { htmlAttributes = new { type = "text", @class = "form-input input--style-2", placeholder = "Description" } })
                         </div>
                         <div class="p-t-30">
@@ -79,5 +70,5 @@
     <!-- Main JS-->
     <script src="~/Content/form/js/global.js"></script>
     <script src="~/Content/FormApiScripts/CRUD.js"></script>
-    <script src="~/Content/FormApiScripts/CourseCreate.js"></script>
+    <script src="~/Content/FormApiScripts/SeminarCreate.js"></script>
 }

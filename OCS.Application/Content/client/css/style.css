@@ -117,6 +117,11 @@ h1,h2,h3,h4,h5,h6 {
 .sign-modal-section .show {
     display: block;
 }
+.sign-modal-section .modal-body form .form-group .user-name-validation,
+.sign-modal-section .modal-body form .form-group .password-confirmation {
+    margin: -8px 0 0 5px;
+    color: #ff4949;
+}
 .sign-modal-section .modal-body form .form-group:first-child {
     display: flex;
     flex-direction: column;
@@ -132,12 +137,17 @@ h1,h2,h3,h4,h5,h6 {
     padding: 0.5rem 1rem 0.5rem 0.5rem;
     left: 0;
 }
-.sign-modal-section .modal-body form .form-group input {
+.sign-modal-section .modal-body form .form-group input,
+.sign-modal-section .modal-body form .form-group select {
     padding: 0.5rem 1rem 0.5rem 1.8rem;
     outline: none;
     color: #5e5e5e;
     border: 1px solid #cac9c9;
     border-radius: 5px;
+}
+.sign-modal-section .modal-body form .form-group select {
+    background: transparent;
+    padding: 0.6rem 1rem 0.6rem 1rem;
 }
 .sign-modal-section .modal-body .signup form .form-group input {
     padding: 0.5rem 1rem 0.5rem 1rem;
@@ -169,6 +179,7 @@ h1,h2,h3,h4,h5,h6 {
     z-index: 999;
     width: 100%;
 }
+
 .topbar .navbar-brand {
     color: #cac9c9;
 }
@@ -188,13 +199,13 @@ h1,h2,h3,h4,h5,h6 {
     width: 1px;
     background: #665f5f;
     position: absolute;
-    top: -0.2rem;
+    top: -7px;
     right: -0.5rem;
 }
 .topbar .search {
     height: 2.5rem;
     overflow: hidden;
-    
+    margin-top: -3px;
 }
 .topbar .search-desktop {
     width: 0;
@@ -210,8 +221,8 @@ h1,h2,h3,h4,h5,h6 {
 }
 .topbar .right .form-group span {
     position: absolute;
-    top: 0px;
-    right: 1px;
+    top: -3px;
+    right: -1px;
     padding: 2px 10px;
     cursor: pointer;
 }
@@ -230,7 +241,7 @@ h1,h2,h3,h4,h5,h6 {
     background: transparent;
     border: 0;
     position: absolute;
-    top: 0;
+    top:-2px;
     right: 0;
     padding: 2px 10px;
     color: #e4e4e4;
@@ -251,9 +262,64 @@ h1,h2,h3,h4,h5,h6 {
 .topbar .right .login-btn:hover {
     background: #ff517e;
 }
+.topbar .right .profile {
+    padding: 0;
+    margin-bottom: 0;
+}
+.topbar .right .profile .profile-img img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+.topbar .right .profile-info {
+    display: none;
+    position: absolute;
+    list-style: none;
+    padding-left: 1rem;
+    width: 16rem;
+    background-color: #434b53;
+    top: 4rem;
+    right: 0;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+.profile-show {
+    display: block !important;
+}
+.topbar .right .profile-info a {
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+}
+.topbar .right .profile-info .profile-icon i {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+.topbar .right .profile-info .nested-item {
+    list-style: none;
+    height: 0;
+    overflow: hidden;
+    line-height: 1.2;
+}
+.topbar .right .profile-info .nested-item-show {
+    height: auto;
+}
+.topbar .right .profile-info .nested-item .nav-link {
+    padding: 0.25rem 0;
+}
 @media (max-width: 360px) {
     .topbar .right .search-show {
         width: 15rem;
+    }
+}
+@media (min-width: 576px) {
+    .topbar .navbar .container-fluid {
+        margin: 0 2rem;
+    }
+    .topbar .right .profile-info {
+        right: -1.5rem;
     }
 }
 @media (min-width: 992px) {
@@ -413,7 +479,8 @@ main .content-body .item {
 main .content-body .card img {
     width: 100%;
     height: 12rem;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 main .content-body .item .card-body .title {
     margin-bottom: 0;
@@ -423,10 +490,14 @@ main .content-body .item .card-body .trainer {
     margin-bottom: .5rem;
 }
 main .content-body .item .card-body .fee {
-    margin: 0 0 .5rem 0;
+    margin: 0 0 3rem 0;
 }
 main .content-body .item .card-body .custom-btn {
     color: #ffffff;
+    bottom: 1rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 main .content-body .item .card-body .join-btn:hover {
     background: #ff517e;
@@ -515,12 +586,14 @@ main .content-body .item .card-body .join-btn:hover {
     order: 1;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 .seminar .content-body .card .img-content img {
     width: 100%;
     height: 10rem !important;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
 }
@@ -632,7 +705,7 @@ main .content-body .item .card-body .join-btn:hover {
     gap: 2rem 1rem;
 }
 .trainer-info .content-body .card {
-    max-width: 320px;
+    width: 250px;
     margin: 0 auto;
     border-radius: 25px;
 }
@@ -666,7 +739,8 @@ main .content-body .item .card-body .join-btn:hover {
     display: block;
     width: 150px;
     height: 150px;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     border-radius: 50%;
 }
 .trainer-info .content-body .img-content .border-circle::before {
@@ -685,6 +759,13 @@ main .content-body .item .card-body .join-btn:hover {
 }
 .trainer-info .content-body .text-content .name {
     margin-bottom: 0;
+}
+.trainer-info .content-body .text-content .details {
+    padding: 0 1rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
 }
 .trainer-info .content-body .view-all {
     top: auto;
@@ -712,6 +793,54 @@ main .content-body .item .card-body .join-btn:hover {
 }
 
 /* ==================================
+    -- pages ==> course-list --
+   ================================== */
+
+.course-list .wrapper .all-items {
+    gap: 1rem;
+    grid-template-columns: auto;
+    margin-top: 2rem;
+}
+.course-list .wrapper .all-items .item {
+    width: 300px;
+    margin: 0 auto;
+}
+.course-list .wrapper .all-items .item img {
+    width: 100%;
+    height: 15rem;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+.course-list .wrapper .pagination-custom {
+    width: 255px;
+   margin: 0 auto;
+}
+
+/* ----------media query---------- */
+
+@media (min-width: 576px) {
+    .course-list .wrapper .all-items {
+        grid-template-columns: auto auto;
+    }
+}
+@media (min-width: 992px) {
+    .course-list .wrapper .all-items {
+        grid-template-columns: auto auto auto;
+    }
+}
+@media (min-width: 1200px) {
+    .course-list .wrapper .all-items {
+        gap: 2rem;
+    }
+}
+@media (min-width: 1400px) {
+    .course-list .wrapper .all-items {
+        grid-template-columns: auto auto auto auto;
+        gap: 2rem;
+    }
+}
+
+/* ==================================
     --------- pages ==> course ---------
    ================================== */
 
@@ -722,6 +851,9 @@ main .content-body .item .card-body .join-btn:hover {
 
 /* -------- sidebar --------- */
 
+.course .sidebar {
+    width: 300px;
+}
 .course .sidebar-icon {
     position: fixed;
     z-index: 600;
@@ -733,12 +865,16 @@ main .content-body .item .card-body .join-btn:hover {
     cursor: pointer;
     transition: var(--transition);
 }
-.course .show-icon {
+.course .show-icon i {
     background: #0000005b;
     color: #ffffff;
-    padding: 0 0.5rem;
+    border-radius: 50%;
+    height: 55px;
+    width: 55px;
+    padding: 0.3rem;
+    margin-left: 1rem;
 }
-.course .show-icon:hover {
+.course .show-icon i:hover {
     background: #00000094;
 }
 .course .hide-icon {
@@ -777,8 +913,10 @@ main .content-body .item .card-body .join-btn:hover {
 }
 .course .sidebar ul li a {
     display: flex;
-    column-gap: 0.2rem;
+    -moz-column-gap: 0.2rem;
+         column-gap: 0.2rem;
     transition: var(--transition);
+    cursor: pointer;
 }
 .course .sidebar ul li a:hover {
     color: #8f8f8f;
@@ -794,7 +932,8 @@ main .content-body .item .card-body .join-btn:hover {
 .course .sidebar ul li a .text {
     margin-top: 0.7rem;
     display: flex;
-    column-gap: 0.2rem;
+    -moz-column-gap: 0.2rem;
+         column-gap: 0.2rem;
 }
 .course .sidebar.shrink {
     left: 0;
@@ -818,12 +957,19 @@ main .content-body .item .card-body .join-btn:hover {
 }
 
 /* ------- content ------- */
-
+.course .content {
+    margin-top: 1rem;
+}
+.course .content .content-wrapper {
+    max-width: 768px;
+    margin: 0 auto;
+}
 .course .content .img-content img {
     display: block;
     width: 100%;
     height: 12rem;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 .course .content .text-content .fee {
     font-size: 3rem;
@@ -858,6 +1004,38 @@ main .content-body .item .card-body .join-btn:hover {
         width: calc(100% - 300px);
         margin-left: 300px;
     }
+}
+
+
+/* ==================================
+    -- pages ==> course-video --
+   ================================== */
+
+.course .content .video-content .course-video {
+    display: block;
+    width: 100%;
+    margin: 2rem 0;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+/* ==================================
+    -- pages ==> Trainer --
+   ================================== */
+
+.fonts {
+    font-size: 13px;
+}
+
+.trainer-profile .custom-card {
+    max-width: 40rem;
+    margin: 0 auto;
+}
+
+.trainer-profile img {
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
 }
 
 /* ==================================
@@ -988,7 +1166,8 @@ footer .footer-contact p a {
     footer .footer-row {
         display: flex;
         justify-content: space-between;
-        column-gap: 3rem;
+        -moz-column-gap: 3rem;
+             column-gap: 3rem;
     }
     footer .footer-row .left,
     footer .footer-row .right {

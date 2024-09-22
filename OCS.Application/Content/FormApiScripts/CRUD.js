@@ -24,11 +24,11 @@ let postData = async (data, url, refresh) => {
     let response = await p.json();
 
     if (response > 0) {
-        console.log("Save Successful");
+        toastr.success("Form Submited Successfully", "Success!!!");
         refresh();
     }
     else {
-        console.log("Save faild");
+        toastr.warning("Form Submission Failed", "Warning!!!");
     }
 }
 
@@ -44,10 +44,10 @@ let updateData = async (data, url, refresh) => {
     let response = await p.json();
 
     if (response > 0) {
-        console.log("Update Successful");
+        toastr.success("Updated Successfully", "Success!!!");
         refresh();
     }
     else {
-        console.log("Update Failed");
+        toastr.warning("Failed to Upadate", "Warning!!!");
     }
 }

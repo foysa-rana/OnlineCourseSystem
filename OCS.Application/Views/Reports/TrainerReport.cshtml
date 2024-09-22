@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "TrainerReport";
+    Layout = "~/Views/Shared/dashboard/_Layout.cshtml";
+}
+
+<!-- Modal -->
+<div class="modal" id="report-modal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="d-flex justify-content-between align-items-start">
+                    <h4 class="title">Generate Trainer Report</h4>
+                    <button type="button" class="btn-close" id="report-modal-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                @using (Html.BeginForm())
+                {
+                    <div class="form-input-group">
+                        <div class="rs-select2 js-select-simple select--no-search form-padding">
+                            <select name="TrainerId" id="TrainerId">
+                                <option disabled="disabled" selected="selected">
+                                    Select Trainer
+                                </option>
+                            </select>
+                            <div class="select-dropdown"></div>
+                        </div>
+                    </div>
+                    <div class="p-t-30">
+                        <button class="form-btn form-btn--radius btn--green" type="button" id="individual-trainer-report">
+                            Run
+                        </button>
+                        <a class="d-none" id="pdf" runat="server">Click Me</a>
+                    </div>
+                }
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="form-template">
+    <div class="page-wrapper font-robo">
+        <div class="form-wrapper wrapper--w960">
+            <div class="form-card form-card-2">
+                <div class="form-card-heading"></div>
+                <div class="form-card-body">
+                    <h4 class="title">Generate Trainer Report</h4>
+                    @using (Html.BeginForm())
+                    {
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="trainer-report" id="all-trainer" value="all trainer">
+                            <label class="form-check-label" for="all-trainer">
+                                All Trainer list
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="trainer-report" id="individual-trainer" value="individual trainer">
+                            <label class="form-check-label" for="individual-trainer">
+                                Individual Trainer
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="trainer-report" id="trainer-by-position" value="trainer by position">
+                            <label class="form-check-label" for="trainer-by-position">
+                                Position wise Trainer
+                            </label>
+                        </div>
+                        <div class="p-t-30">
+                            <button class="form-btn form-btn--radius btn--green" type="button" id="trainer-report">
+                                Run
+                            </button>
+                            <a class="d-none" id="pdf" runat="server">Click Me</a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section ViewSpecificJavascript
+{
+    <script src="~/Content/form/vendor/select2/select2.min.js"></script>
+    <script>
+        (function ($) {
+            'use strict';
+            /*[ Select 2 Config ]
+                ===========================================================*/
+
+            try {
+                var selectSimple = $('.js-select-simple');
+
+                selectSimple.each(function () {
+                    var that = $(this);
+                    var selectBox = that.find('select');
+                    var selectDropdown = that.find('.select-dropdown');
+                    selectBox.select2({
+                        dropdownParent: selectDropdown
+                    });
+                });
+
+            } catch (err) {
+                console.log(err);
+            }
+
+        })(jQuery);
+    </script>
+    <script src="~/Scripts/jquery.fancybox.js"></script>
+    <script src="~/Content/ReportScripts/Reports.js"></script>
+}

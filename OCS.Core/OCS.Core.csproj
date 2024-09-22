@@ -58,15 +58,19 @@
     <Compile Include="AutoMapperConfigurations\AutoMapperConfigurations.cs" />
     <Compile Include="AutoMapperConfigurations\MappingsProfile.cs" />
     <Compile Include="CommonModel\DateTimeFormatter.cs" />
-    <Compile Include="Model\Course\Course.cs" />
-    <Compile Include="Model\Seminar\Seminar.cs" />
-    <Compile Include="Model\SignUp\UserSignUp.cs" />
-    <Compile Include="Model\Trainer\Trainer.cs" />
+    <Compile Include="Model\CourseModel\Course.cs" />
+    <Compile Include="Model\SeminarModel\Seminar.cs" />
+    <Compile Include="Model\SignUpModel\UserSignUp.cs" />
+    <Compile Include="Model\TrainerModel\Trainer.cs" />
+    <Compile Include="Model\VideoModel\Videos.cs" />
+    <Compile Include="PatchModel\UserCoursePatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModel\Course\CourseView.cs" />
-    <Compile Include="ViewModel\Seminar\SeminarView.cs" />
-    <Compile Include="ViewModel\SignUp\UserSignUpView.cs" />
-    <Compile Include="ViewModel\Trainer\TrainerView.cs" />
+    <Compile Include="ReportModel\ReportViewModel\TrainerViewModel.cs" />
+    <Compile Include="ViewModel\CourseViewModel\CourseView.cs" />
+    <Compile Include="ViewModel\SeminarViewModel\SeminarView.cs" />
+    <Compile Include="ViewModel\SignUpViewModel\UserSignUpView.cs" />
+    <Compile Include="ViewModel\TrainerViewModel\TrainerView.cs" />
+    <Compile Include="ViewModel\VideosViewModel\VideosView.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

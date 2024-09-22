@@ -1,7 +1,8 @@
-﻿using OCS.Core.Model.Course;
-using OCS.Core.Model.Seminar;
-using OCS.Core.Model.SignUp;
-using OCS.Core.Model.Trainer;
+﻿using OCS.Core.Model.CourseModel;
+using OCS.Core.Model.SeminarModel;
+using OCS.Core.Model.SignUpModel;
+using OCS.Core.Model.TrainerModel;
+using OCS.Core.Model.VideoModel;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -17,5 +18,6 @@ namespace OCS.Persistance.DatabaseFile
         public DbSet<Seminar> Seminars { get; set; }
         public DbSet<Trainer> Trainers { get; set; }
         public DbSet<UserSignUp> Users { get; set; }
+        public DbSet<Videos> Videos { get; set; }
     }
 }

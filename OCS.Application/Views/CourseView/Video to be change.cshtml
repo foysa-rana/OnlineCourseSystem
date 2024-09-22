@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Video";
+    Layout = "~/Views/Shared/client/_Layout.cshtml";
+}
+
+<!-- main -->
+<main class="course position-relative">
+    <div class="sidebar-icon">
+        <span class="show-icon">
+            <i class="ri-arrow-right-s-line"></i>
+        </span>
+    </div>
+    <section class="sidebar">
+        <div class="wrapper">
+            <div class="sidebar-heading mb-4">
+                <a href="#" class="nav-link">
+                    <h6 class="sidebar-title text-center">Front-End Development</h6>
+                </a>
+                <span class="hide-icon">
+                    <i class="ri-arrow-left-s-line"></i>
+                </span>
+            </div>
+            <ul class="videoList">
+                <!-- load video list here -->
+            </ul>
+        </div>
+    </section>
+    <section class="content">
+        <div class="content-wrapper" id="loadContentVideo">
+            <!-- load video here -->
+        </div>
+    </section>
+</main>
+<!-- end of main -->
+<!-- footer -->
+<footer class="bg-dark pt-3">
+    <!-- script for course page -->
+    <script>
+        let footer = document.querySelector("footer");
+        footer.classList.add("course-footer-width");
+    </script>
+
+@section ViewSpecificJavascript
+{
+    <script src="~/Scripts/client/LoadData/loadViedeos.js"></script>
+}

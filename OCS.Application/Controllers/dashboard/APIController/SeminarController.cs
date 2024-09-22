@@ -1,4 +1,4 @@
-﻿using OCS.Core.ViewModel.Seminar;
+﻿using OCS.Core.ViewModel.SeminarViewModel;
 using OCS.Service.Manager;
 using System;
 using System.Collections.Generic;
@@ -16,6 +16,23 @@ namespace OCS.Application.Controllers.dashboard.APIController
         SeminarController()
         {
             _service = new SeminarService();
+        }
+
+        //SEARCH: api/Trainer/Search/query
+        [Route("api/Seminar/Search/{query}")]
+        [HttpGet]
+        public IHttpActionResult Search(string query)
+        {
+            try
+            {
+                var info = _service.GetAll()
+                    .Where(c => c.Name.ToLower().Contains(query));
+                return Ok(info);
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Match not found");
+            }
         }
 
         // GET: api/Seminar

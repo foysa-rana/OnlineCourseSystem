@@ -1,16 +1,20 @@
 ﻿$(document).ready(() => {
     formValue();
-
+    loadTrainerInfo()
 });
 //refresh form
 let refresh = () => {
     $("#Id").val("");
     $("#Photo").val("");
+    $("#profile-select").attr("src", "../../Profile_image/blank-profile-picture.jpg");
     $("#TrainerId").val("");
     $("#Name").val("");
+    $("#Fee").val("");
     $("#Duration").val("");
     $("#Description").val("");
 }
+
+let newFile = '';
 
 //update or post
 let formValue = () => {
@@ -18,11 +22,33 @@ let formValue = () => {
     getData();
 
     $("#Submit").on('click', () => {
+        let file = document.querySelector("#Photo").files[0];
+        if (file) {
+            let d = new Date,
+                dformat = [(d.getMonth() + 1),
+                d.getDate(),
+                d.getFullYear()].join('-') + '_' +
+                    [d.getHours(),
+                    d.getMinutes(),
+                    d.getSeconds()].join('-');
+            let blob = file.slice(0, file.size, 'image/jpeg/png/jpg');
+            newFile = new File([blob], dformat + '_' + file.name, { type: 'image/jpeg/png/jpg' });
+            uploadPhoto();
+        }
+
         let vm = {};
+
+        if (newFile == "" || newFile == null || newFile == undefined) {
+            vm.Photo = $("#imgName").val();
+        }
+        else {
+            vm.Photo = newFile.name;
+        }
+
         let id = $("#Id").val();
-        vm.Photo = $("#Photo").val();
         vm.TrainerId = $("#TrainerId").val();
         vm.Name = $("#Name").val();
+        vm.Fee = $("#Fee").val();
         vm.Duration = $("#Duration").val();
         vm.Description = $("#Description").val();
         //post formdata
@@ -38,6 +64,40 @@ let formValue = () => {
     });
 }
 
+//post photo
+let uploadPhoto = async () => {
+    let file = document.querySelector('#Photo');
+    let data = new FormData();
+    data.append("photo", newFile);
+    let p = await fetch("/Course/CreateCourse", {
+        method: "POST",
+        body: data,
+    });
+    let response = await p.json();
+
+    if (response) {
+        console.log("Image Save Successful");
+    }
+    else {
+        console.log("Image Save faild");
+    }
+}
+
+//load trainer info
+let loadTrainerInfo = async () => {
+    let trainerId = document.querySelector('#TrainerId');
+    let p = await fetch("/api/Trainer");
+
+    let data = await p.json();
+
+    data.forEach((val) => {
+        let option = document.createElement('option');
+        trainerId.append(option);
+        option.append(val.fName + " " + val.lName);
+        option.setAttribute('value', val.id);
+    })
+}
+
 //get data
 let getData = () => {
     let queryValue = getUrlVars();
@@ -47,11 +107,13 @@ let getData = () => {
         $.get(url)
             .done((data) => {
                 $("#Id").val(data.id);
-                $("#Photo").val(data.Photo);
-                $("#TrainerId").val(data.TrainerId);
-                $("#Name").val(data.Name);
-                $("#Duration").val(data.Duration);
-                $("#Description").val(data.Description);
+                $("#imgName").val(data.photo);
+                $("#profile-select").attr("src", "../../images/Course-img/" + data.photo);
+                $("#TrainerId").val(data.trainerId);
+                $("#Name").val(data.name);
+                $("#Fee").val(data.fee);
+                $("#Duration").val(data.duration);
+                $("#Description").val(data.description);
             })
     }
 }

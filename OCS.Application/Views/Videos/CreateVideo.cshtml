@@ -1,0 +1,71 @@
+﻿@model OCS.Core.ViewModel.VideosViewModel.VideosView
+@{
+    ViewBag.Title = "CreateVideo";
+    Layout = "~/Views/Shared/dashboard/_Layout.cshtml";
+}
+
+<div class="form-template form-font">
+    <div class="page-wrapper font-robo">
+        <div class="form-wrapper wrapper--w960">
+            <div class="form-card form-card-2">
+                <div class="form-card-heading"></div>
+                <div class="form-card-body">
+                    <h2 class="form-title">Add Video</h2>
+                    @using (Html.BeginForm("CreateVideo", "Videos", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                    {
+                        <div class="profile">
+                            <label for="Video" class="video-container">
+                                <div class="video-here">
+                                    <i class="fa-solid fa-video"></i>
+                                    <p class="browse-btn">Browse <i class="fa-solid fa-upload"></i></p>
+                                </div>
+                                <video id="video-select"></video>
+                                <span class="change"><i class="fa-solid fa-rotate"></i></span>
+                            </label>
+                            @Html.EditorFor(model => model.Video, new { htmlAttributes = new { type = "file", @class = "d-none", accept = "video/mp4, video/mkv, video/x-m4v, video/*" } })
+                            <input class="d-none" type="text" id="imgName" />
+                        </div>
+                        <div class="form-input-group">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { type = "text", @class = "form-input input--style-2", placeholder = "Name" } })
+                        </div>
+                        <div class="form-input-group">
+                            <div class="rs-select2 js-select-simple select--no-search form-padding">
+                                <select name="CourseId" id="CourseId">
+                                    <option disabled="disabled" selected="selected" value="select course">
+                                        Select Course
+                                    </option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                        <div class="p-t-30">
+                            @Html.HiddenFor(model => model.Id)
+                            <input type="text" id="Extension" class="d-none" />
+                            <button class="form-btn form-btn--radius btn--green" type="button" id="Submit">
+                                Submit
+                            </button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section ViewSpecificJavascript
+{
+    <!-- Jquery JS-->
+    <script src="~/Content/form/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="~/Content/form/vendor/select2/select2.min.js"></script>
+    <script src="~/Content/form/vendor/datepicker/moment.min.js"></script>
+    <script src="~/Content/form/vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="~/Content/form/js/global.js"></script>
+    <script src="~/Content/FormApiScripts/CRUD.js"></script>
+    <script src="~/Content/FormApiScripts/VideosCreate.js"></script>
+}
+

@@ -55,6 +55,30 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -124,6 +148,15 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Toast, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Toaster.2.1.10716.0\lib\net45\Toast.exe</HintPath>
+    </Reference>
+    <Reference Include="Toaster, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Toaster.2.1.10716.0\lib\net45\Toaster.dll</HintPath>
+    </Reference>
+    <Reference Include="ToolBelt, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Toaster.2.1.10716.0\lib\net45\ToolBelt.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -143,19 +176,39 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\client\APIController\AuthController.cs" />
     <Compile Include="Controllers\client\APIController\UserController.cs" />
+    <Compile Include="Controllers\client\CourseListController.cs" />
+    <Compile Include="Controllers\client\CourseViewController.cs" />
     <Compile Include="Controllers\client\HomeController.cs" />
+    <Compile Include="Controllers\client\PaymentController.cs" />
+    <Compile Include="Controllers\dashboard\AccountController.cs" />
     <Compile Include="Controllers\dashboard\AdminController.cs" />
+    <Compile Include="Controllers\dashboard\APIController\AuthenticationController.cs" />
     <Compile Include="Controllers\dashboard\APIController\CourseController.cs" />
+    <Compile Include="Controllers\dashboard\APIController\ReportAPI\ReportController.cs" />
     <Compile Include="Controllers\dashboard\APIController\SeminarController.cs" />
     <Compile Include="Controllers\dashboard\APIController\TrainerController.cs" />
+    <Compile Include="Controllers\dashboard\APIController\VideosController.cs" />
     <Compile Include="Controllers\dashboard\CourseController.cs" />
+    <Compile Include="Controllers\dashboard\ReportsController.cs" />
     <Compile Include="Controllers\dashboard\SeminarController.cs" />
     <Compile Include="Controllers\dashboard\TrainerController.cs" />
+    <Compile Include="Controllers\dashboard\VideosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\TrainerDataSet.cs">
+      <DependentUpon>TrainerDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TrainerDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrainerDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RoleManager\Role.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\client\css\style.css" />
@@ -164,6 +217,8 @@
     <Content Include="Content\client\images\banner\bg.svg" />
     <Content Include="Content\client\images\course\front-end development.jpg" />
     <Content Include="Content\client\images\trainer-profile\david.jpg" />
+    <Content Include="Content\client\Payment\payment.css" />
+    <Content Include="Content\dashboard\Authentication\Auth.js" />
     <Content Include="Content\dashboard\bootstrap-theme.css" />
     <Content Include="Content\dashboard\bootstrap-theme.min.css" />
     <Content Include="Content\dashboard\bootstrap.css" />
@@ -1854,6 +1909,13 @@
     <Content Include="Content\dashboard\vendor\jquery\jquery.min.js" />
     <Content Include="Content\dashboard\vendor\jquery\jquery.slim.js" />
     <Content Include="Content\dashboard\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Content\fancybox\blank.gif" />
+    <Content Include="Content\fancybox\fancybox_buttons.png" />
+    <Content Include="Content\fancybox\fancybox_loading%402x.gif" />
+    <Content Include="Content\fancybox\fancybox_loading.gif" />
+    <Content Include="Content\fancybox\fancybox_overlay.png" />
+    <Content Include="Content\fancybox\fancybox_sprite%402x.png" />
+    <Content Include="Content\fancybox\fancybox_sprite.png" />
     <Content Include="Content\FormApiScripts\CourseCreate.js" />
     <Content Include="Content\FormApiScripts\CourseList.js" />
     <Content Include="Content\FormApiScripts\CRUD.js" />
@@ -1862,6 +1924,7 @@
     <Content Include="Content\FormApiScripts\TrainerCreate.js" />
     <Content Include="Content\FormApiScripts\TrainerList.js" />
     <Content Include="Content\FormApiScripts\UserSignUp.js" />
+    <Content Include="Content\FormApiScripts\VideosCreate.js" />
     <Content Include="Content\form\css\main.css" />
     <Content Include="Content\form\images\bg-heading-02.jpg" />
     <Content Include="Content\form\js\global.js" />
@@ -1877,11 +1940,54 @@
     <Content Include="Content\form\vendor\mdi-font\fonts\Material-Design-Iconic-Font.svg" />
     <Content Include="Content\form\vendor\select2\select2.min.css" />
     <Content Include="Content\form\vendor\select2\select2.min.js" />
+    <Content Include="Content\jquery.fancybox-buttons.css" />
+    <Content Include="Content\jquery.fancybox-thumbs.css" />
+    <Content Include="Content\jquery.fancybox.css" />
+    <Content Include="Content\ReportScripts\Reports.js" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\Videos\LoadCourses.js" />
+    <Content Include="Scripts\client\Authentication\Auth.js" />
+    <Content Include="Scripts\client\js\datePicker.js" />
+    <Content Include="Scripts\client\LoadData\LoadSingleCourse.js" />
+    <Content Include="Content\Videos\LoadVideos.js" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Icon\video-icon.png" />
     <Content Include="Profile_image\blank-profile-picture.jpg" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.min.js" />
+    <Content Include="Scripts\client\js\loadData.js" />
     <Content Include="Scripts\client\js\main.js" />
     <Content Include="Scripts\client\js\swiper.js" />
+    <Content Include="Scripts\client\LoadData\LoadAllCourse.js" />
+    <Content Include="Scripts\client\LoadData\loadSingleTrainer.js" />
+    <Content Include="Scripts\client\LoadData\loadViedeos.js" />
+    <Content Include="Scripts\client\LoadData\UserProfile.js" />
+    <Content Include="Scripts\client\Payment\Payment.js" />
+    <Content Include="Scripts\client\UserAccount\CRUD.js" />
+    <Content Include="Scripts\client\UserAccount\userSignUp.js" />
+    <Content Include="Scripts\jquery.fancybox-buttons.js" />
+    <Content Include="Scripts\jquery.fancybox-media.js" />
+    <Content Include="Scripts\jquery.fancybox-thumbs.js" />
+    <Content Include="Scripts\jquery.fancybox.js" />
+    <Content Include="Scripts\jquery.fancybox.pack.js" />
+    <Content Include="Scripts\jquery.mousewheel-3.0.6.pack.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1896,7 +2002,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content Media\Videos\" />
+    <Folder Include="images\Course-img\" />
+    <Folder Include="images\Seminar-img\" />
+    <Folder Include="images\TrainerProfile-img\" />
     <Folder Include="Models\" />
+    <Folder Include="Report\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\dashboard\Error.cshtml" />
@@ -2086,6 +2197,10 @@
     <Content Include="Content\form\vendor\mdi-font\fonts\Material-Design-Iconic-Font.ttf" />
     <Content Include="Content\form\vendor\mdi-font\fonts\Material-Design-Iconic-Font.woff" />
     <Content Include="Content\form\vendor\mdi-font\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\toastr.scss" />
     <None Include="packages.config" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\client\_Layout.cshtml" />
@@ -2096,6 +2211,29 @@
     <Content Include="Views\Seminar\CreateSeminar.cshtml" />
     <Content Include="Views\Course\CreateCourse.cshtml" />
     <Content Include="Views\Course\CourseList.cshtml" />
+    <Content Include="Views\Reports\TrainerReport.cshtml" />
+    <Content Include="Views\Reports\TraineeReport.cshtml" />
+    <Content Include="Reports\TrainerDataSet.xsc">
+      <DependentUpon>TrainerDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Reports\TrainerDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TrainerDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\TrainerDataSet.xss">
+      <DependentUpon>TrainerDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Views\CourseList\AllCourse.cshtml" />
+    <Content Include="Views\CourseView\Course.cshtml" />
+    <Content Include="Views\CourseView\Video to be change.cshtml" />
+    <Content Include="Views\Videos\CreateVideo.cshtml" />
+    <Content Include="Views\Videos\VideoList.cshtml" />
+    <Content Include="Views\Videos\Courses.cshtml" />
+    <Content Include="Views\Home\Trainer.cshtml" />
+    <Content Include="Views\Payment\Checkout.cshtml" />
+    <Content Include="Views\Account\LogIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OCS.Core\OCS.Core.csproj">
@@ -2106,6 +2244,12 @@
       <Project>{1244ac76-889c-4d05-9f59-81c4bff6e83b}</Project>
       <Name>OCS.Service</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\AllTrainer.rdlc" />
+    <EmbeddedResource Include="Reports\IndividualTrainer.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

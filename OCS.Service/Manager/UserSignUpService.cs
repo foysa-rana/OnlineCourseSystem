@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
-using OCS.Core.Model.SignUp;
-using OCS.Core.ViewModel.SignUp;
+using OCS.Core.Model.SignUpModel;
+using OCS.Core.PatchModel;
+using OCS.Core.ViewModel.SignUpViewModel;
 using OCS.Persistance.DatabaseFile;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace OCS.Service.Manager
         // get method 
         public UserSignUpView Get(int id)
         {
-            var entity = _db.Users.SingleOrDefault(m => m.Id == id);
+            var entity = _db.Users.Include("Course").SingleOrDefault(m => m.Id == id);
             return Mapper.Map<UserSignUp, UserSignUpView>(entity);
         }
 
@@ -36,6 +37,7 @@ namespace OCS.Service.Manager
         //post method
         public int Post(UserSignUpView vm)
         {
+            vm.UserRole = "User";
             var entity = Mapper.Map<UserSignUpView, UserSignUp>(vm);
             _db.Users.Add(entity);
             return _db.SaveChanges();
@@ -46,6 +48,15 @@ namespace OCS.Service.Manager
         {
             var entity = _db.Users.SingleOrDefault(m => m.Id == id);
             Mapper.Map(vm, entity);
+            return _db.SaveChanges();
+        }
+        
+        //patch method
+        public int Patch(int id, string vm)
+        {
+            var entity = _db.Users.SingleOrDefault(m => m.Id == id);
+            entity.CourseId = vm;
+            //Mapper.Map(vm, entity);
             return _db.SaveChanges();
         }
 

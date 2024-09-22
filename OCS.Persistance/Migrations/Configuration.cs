@@ -9,7 +9,7 @@ namespace OCS.Persistance.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(OCS.Persistance.DatabaseFile.ApplicationDB context)

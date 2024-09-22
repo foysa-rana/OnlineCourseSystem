@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using OCS.Core.Model.Trainer;
-using OCS.Core.ViewModel.Trainer;
+using OCS.Core.Model.TrainerModel;
+using OCS.Core.ViewModel.TrainerViewModel;
 using OCS.Persistance.DatabaseFile;
 using System;
 using System.Collections.Generic;

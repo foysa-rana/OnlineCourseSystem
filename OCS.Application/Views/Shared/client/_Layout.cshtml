@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
           rel="stylesheet" />
     <!-- font ==> PermanentMarker -->
-    <link rel="stylesheet" href="./font/PermanentMarker/PermanentMarker.css" />
+    <link rel="stylesheet" href="~/Content/client/font/PermanentMarker/PermanentMarker.css" />
     <!-- google font ==> roboto + open-sans + josefin-sanas -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,7 +25,12 @@
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
           crossorigin="anonymous" />
     <!-- main css -->
-    @Styles.Render("~/bundles/client/css")
+    <link href="~/Content/client/font/PermanentMarker/PermanentMarker.css" rel="stylesheet" />
+    <link href="~/Content/client/Payment/payment.css" rel="stylesheet" />
+    <link href="~/Content/client/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link href="~/Content/form/vendor/select2/select2.min.css" rel="stylesheet" />
+    <link href="~/Content/form/css/main.css" rel="stylesheet" />
 </head>
 <body>
     <!-- sign up modal -->
@@ -64,7 +69,7 @@
                                                 <input class="w-100"
                                                        type="text"
                                                        name="user"
-                                                       id="user"
+                                                       id="User"
                                                        placeholder="username or email" />
                                             </div>
                                             <div class="form-icon">
@@ -72,7 +77,7 @@
                                                 <input class="w-100"
                                                        type="password"
                                                        name="password"
-                                                       id="Password-SignIn"
+                                                       id="PasswordSignIn"
                                                        placeholder="password" />
                                             </div>
                                         </div>
@@ -80,12 +85,12 @@
                                             <div class="check">
                                                 <input type="checkbox"
                                                        name="remember"
-                                                       id="remember" />
-                                                <label class="remember" for="remember">Remember Me</label>
+                                                       id="Remember" />
+                                                <label class="remember" for="Remember">Remember Me</label>
                                             </div>
                                             <a href="#" class="nav-link forgot">Forgot Password</a>
                                         </div>
-                                        <button class="sign-btn sign-submit mt-4" type="button">
+                                        <button id="signIn" class="sign-btn sign-submit mt-4" type="button">
                                             Sign In
                                         </button>
                                     </form>
@@ -98,6 +103,7 @@
                                                    name="username"
                                                    id="UserName"
                                                    placeholder="Username" />
+                                            <p class="small user-name-validation d-none">Username already exist</p>
                                             <input class="w-100"
                                                    type="text"
                                                    name="fname"
@@ -108,6 +114,31 @@
                                                    name="lname"
                                                    id="LName"
                                                    placeholder="Last name" />
+                                            <div class="form-row form-row-space">
+                                                <div style="width: 48%">
+                                                    <div class="position-relative">
+                                                        <input class="w-100 js-datepicker"
+                                                               type="text"
+                                                               placeholder="Birthdate"
+                                                               name="birthday"
+                                                               id="BirthDate" />
+                                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                                    </div>
+                                                </div>
+                                                <div style="width: 48%">
+                                                    <div class="w-100">
+                                                        <select name="gender" id="Gender" class="w-100">
+                                                            <option disabled="disabled" selected="selected">
+                                                                Gender
+                                                            </option>
+                                                            <option>Male</option>
+                                                            <option>Female</option>
+                                                            <option>Other</option>
+                                                        </select>
+                                                        <div class="select-dropdown"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <input type="email"
                                                    name="email"
                                                    id="Email"
@@ -120,8 +151,9 @@
                                                    name="confirm-password"
                                                    id="confirm-password-SignUp"
                                                    placeholder="Confirm Password" />
+                                            <p class="small password-confirmation d-none">Password did not matched.</p>
                                         </div>
-                                        <button class="sign-btn sign-submit mt-4" type="button">
+                                        <button id="signUp" class="sign-btn sign-submit mt-4" type="button">
                                             Sign Up
                                         </button>
                                     </form>
@@ -138,7 +170,7 @@
     <section class="topbar">
         <nav class="navbar navbar-expand-lg bg-body-tertiary"
              data-bs-theme="dark">
-            <div class="container">
+            <div class="container-fluid">
                 <button class="navbar-toggler border-0 shadow-none"
                         type="button"
                         data-bs-toggle="offcanvas"
@@ -147,7 +179,7 @@
                         aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand fs-2 Permanent-Marker" href="#">Techvally</a>
+                <a class="navbar-brand fs-2 Permanent-Marker" href=@Url.Action("Index", "Home")>Techvally</a>
                 <div class="offcanvas offcanvas-start flex-lg-row"
                      tabindex="-1"
                      id="offcanvasNavbar"
@@ -180,17 +212,17 @@
                                 </form>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="#">Home</a>
+                                <a class="nav-link" aria-current="page" href=@Url.Action("Index", "Home")>Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Courses</a>
+                                <a class="nav-link" href=@Url.Action("AllCourse", "CourseList")>Courses</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contact</a>
-                            </li>
+                            @*<li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Contact</a>
+                                </li>*@
                         </ul>
                         <!-- end of left -->
                     </div>
@@ -212,12 +244,79 @@
                             </button>
                         </div>
                     </form>
-                    <li class="nav-item">
-                        <a class="nav-link login-btn"
-                           data-bs-toggle="modal"
-                           data-bs-target="#sign-modal"
-                           href="#">Log In</a>
-                    </li>
+                    @{
+                        var controllerName = ViewContext.RouteData.Values["controller"].ToString();
+                        var actionName = ViewContext.RouteData.Values["action"].ToString();
+                        if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.IsInRole("User"))
+                            {
+                                <script>
+                                let userAuthorized = true;
+                                let userIdentity = "@User.Identity.Name.ToString()";
+                                </script>
+                                <li class="nav-item position-relative">
+                                    <a class="nav-link profile">
+                                        <div class="profile-img">
+                                            <img src="../../Profile_image/blank-profile-picture.jpg" id="userProfileImg" alt="" />
+                                        </div>
+                                    </a>
+                                    <ul class="profile-info">
+                                        @*<li class="nav-item">
+                                                <a href="" class="nav-link">
+                                                    <span class="profile-icon">
+                                                        <i class="ri-user-line"></i>
+                                                    </span>
+                                                    <span class="icon-text">Profile</span>
+                                                </a>
+                                            </li>*@
+                                        <li class="nav-item position-relative">
+                                            <a class="nav-link" id="nestedBtn">
+                                                <span class="profile-icon">
+                                                    <i class="ri-file-list-line"></i>
+                                                </span>
+                                                <span class="icon-text d-flex align-items-center">My Courses <i id="rightArrow" class="ri-arrow-right-s-line" style="font-size: 1.3rem; transform: rotate(0deg);"></i></span>
+                                            </a>
+                                            <ul class="nested-item" id="selectNested"></ul>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="logOut">
+                                                <span class="profile-icon">
+                                                    <i class="ri-logout-circle-line"></i>
+                                                </span>
+                                                <span class="icon-text">Logout</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            }
+                            else
+                            {
+                                <script>
+                                    let userAuthorized = false;
+                                </script>
+                                <li class="nav-item">
+                                    <a class="nav-link login-btn"
+                                       data-bs-toggle="modal"
+                                       data-bs-target="#sign-modal"
+                                       href="#">Log In</a>
+                                </li>
+                            }
+
+                        }
+                        else
+                        {
+                            <script>
+                                let userAuthorized = false;
+                            </script>
+                            <li class="nav-item">
+                                <a class="nav-link login-btn"
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#sign-modal"
+                                   href="#">Log In</a>
+                            </li>
+                        }
+                    }
                 </ul>
                 <!-- end of right -->
             </div>
@@ -234,7 +333,7 @@
                         <div class="wrap">
                             <div class="branding text-center">
                                 <a class="navbar-brand fs-2 Permanent-Marker text-white"
-                                   href="#">Techvally</a>
+                                   href="/">Techvally</a>
                             </div>
                             <ul class="social-icons">
                                 <li>
@@ -297,44 +396,7 @@
                         <h4 class="text-white footer-title d-inline-block">
                             Popular Courses
                         </h4>
-                        <ul class="ps-0">
-                            <li>
-                                <a href="" class="nav-link">
-                                    <i class="ri-check-double-line"></i> Front-End
-                                    Development
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" class="nav-link">
-                                    <i class="ri-check-double-line"></i> Front-End
-                                    Development
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" class="nav-link">
-                                    <i class="ri-check-double-line"></i> Front-End
-                                    Development
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" class="nav-link">
-                                    <i class="ri-check-double-line"></i> Front-End
-                                    Development
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" class="nav-link">
-                                    <i class="ri-check-double-line"></i> Front-End
-                                    Development
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" class="nav-link">
-                                    <i class="ri-check-double-line"></i> Front-End
-                                    Development
-                                </a>
-                            </li>
-                        </ul>
+                        <ul class="ps-0 footer-popular-courses"></ul>
                     </div>
                     <!-- end of footer popular courses -->
                 </div>
@@ -363,18 +425,54 @@
     </div>
     </footer>
     <!-- end of footer -->
+    <script>
+        //load popular courses
+        let footerPopularCourses = async () => {
+            let p = await fetch("/api/Course/GetAllOrderByDescending");
+            let data = await p.json();
+            let footerPopularCourses = document.querySelector('.footer-popular-courses');
+            let storeFooterData = "";
+            let count = 0;
+            data.forEach((item, index) => {
+                count++;
+                if (count <= 10) {
+                    storeFooterData +=
+                        `<li>
+                            <a href="/CourseView/Course?id=${item.id}" class="nav-link">
+                                <i class="ri-check-double-line"></i> ${item.name}
+                            </a>
+                        </li>`;
+                }
+
+            });
+            footerPopularCourses.innerHTML = storeFooterData;
+        }
+        footerPopularCourses();
+    </script>
     <!-- swiper js -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
             crossorigin="anonymous"></script>
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- js -->
     <script src="~/Content/dashboard/vendor/jquery/jquery.min.js"></script>
-    <script src="~/Content/FormApiScripts/CRUD.js"></script>
-    <script src="~/Content/FormApiScripts/UserSignUp.js"></script>
-    @Scripts.Render("~/bundles/client/js")
-
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="~/Scripts/client/UserAccount/CRUD.js"></script>
+    <script src="~/Scripts/client/UserAccount/userSignUp.js"></script>
+    <script src="~/Scripts/client/Authentication/Auth.js"></script>
+    <script src="~/Scripts/client/js/swiper.js"></script>
+    <script src="~/Scripts/client/js/main.js"></script>
+    <script src="~/Scripts/client/LoadData/UserProfile.js"></script>
+    <script>
+        $(function () {
+            $(".js-datepicker").datepicker({
+                dateFormat: "dd/mm/yy"
+            });
+        });
+    </script>
 
     @RenderSection("ViewSpecificJavascript", required: false)
 </body>

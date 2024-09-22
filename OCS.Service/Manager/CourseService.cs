@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
-using OCS.Core.Model.Course;
-using OCS.Core.ViewModel.Course;
+using OCS.Core.Model.CourseModel;
+using OCS.Core.Model.VideoModel;
+using OCS.Core.ViewModel.CourseViewModel;
+using OCS.Core.ViewModel.VideosViewModel;
 using OCS.Persistance.DatabaseFile;
 using System;
 using System.Collections.Generic;
@@ -19,6 +21,13 @@ namespace OCS.Service.Manager
             _db = new ApplicationDB();
         }
 
+        //countVideo
+        public IEnumerable<VideosView> CountVideo()
+        {
+            var entities = _db.Videos.ToList();
+            return entities.Select(Mapper.Map<Videos, VideosView>);
+        }
+
         //post method
         public int Post(CourseView vm)
         {
@@ -30,14 +39,14 @@ namespace OCS.Service.Manager
         //get method
         public CourseView Get(int id)
         {
-            var entity = _db.Courses.SingleOrDefault(m => m.Id == id);
+            var entity = _db.Courses.Include("Trainer").SingleOrDefault(m => m.Id == id);
             return Mapper.Map<Course, CourseView>(entity);
         }
 
         //get all method
         public IEnumerable<CourseView> GetAll()
         {
-            var entities = _db.Courses.ToList();
+            var entities = _db.Courses.Include("Trainer").ToList();
             return entities.Select(Mapper.Map<Course, CourseView>);
         }
 
@@ -46,6 +55,14 @@ namespace OCS.Service.Manager
         {
             var entity = _db.Courses.SingleOrDefault(m => m.Id == id);
             Mapper.Map(vm, entity);
+            return _db.SaveChanges();
+        }
+        
+        //patch method
+        public int Patch(int id, int count)
+        {
+            var entity = _db.Courses.SingleOrDefault(m => m.Id == id);
+            entity.PurchaseCount = count;
             return _db.SaveChanges();
         }
 

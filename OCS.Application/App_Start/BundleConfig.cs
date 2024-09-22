@@ -37,6 +37,16 @@ namespace OCS.Application
                 "~/Content/form/vendor/mdi-font/css/material-design-iconic-font.min.css",
                 "~/Content/form/vendor/select2/select2.min.css",
                 "~/Content/form/css/main.css"));
+
+            //third party css
+            bundles.Add(new StyleBundle("~/bundles/thirdpartycss").Include(
+                "~/Content/toastr.css",
+                "~/Content/jquery.fancybox.css"));
+
+            //third party js
+            bundles.Add(new ScriptBundle("~/bundles/thirdpartyjs").Include(
+                "~/Scripts/toastr.min.js",
+                "~/Scripts/bootbox.min.js"));
         }
     }
 }

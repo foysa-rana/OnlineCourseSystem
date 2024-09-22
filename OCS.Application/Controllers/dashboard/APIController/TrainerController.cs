@@ -1,4 +1,4 @@
-﻿using OCS.Core.ViewModel.Trainer;
+﻿using OCS.Core.ViewModel.TrainerViewModel;
 using OCS.Service.Manager;
 using System;
 using System.Collections.Generic;
@@ -16,6 +16,26 @@ namespace OCS.Application.Controllers.dashboard.APIController
         TrainerController()
         {
             _service = new TrainerService();
+        }
+
+        //SEARCH: api/Trainer/Search/query
+        [Route("api/Trainer/Search/{query}")]
+        [HttpGet]
+        public IHttpActionResult Search(string query)
+        {
+            try
+            {
+                var info = _service.GetAll()
+                    .Where(c => c.FName.ToLower().Contains(query) ||
+                    c.LName.ToLower().Contains(query) ||
+                    c.Position.ToLower().Contains(query) ||
+                    c.TrainerId.ToLower().Contains(query));
+                return Ok(info);
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Match not found");
+            }
         }
 
         // GET: api/Trainer
